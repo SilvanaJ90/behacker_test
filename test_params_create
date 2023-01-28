@@ -1,0 +1,7 @@
+create Category name="Cumplimiento"
+create Category name="Dominancia"
+all Category
+
+create Test user_id="0001" name="profile'" result="2"
+all Test
+

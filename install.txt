@@ -1,0 +1,113 @@
+ MYSQL
+
+Install MySQL 8.0 on Ubuntu 20.04 LTS 
+$ sudo apt update
+$ sudo apt install mysql-server
+...
+$ mysql --version
+mysql  Ver 8.0.25-0ubuntu0.20.04.1 for Linux on x86_64 ((Ubuntu))
+$
+
+
+Connect to your MySQL server: 
+$ sudo mysql
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.25-0ubuntu0.20.04.1 (Ubuntu)
+
+Copyright (c) 2000, 2021, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+mysql> quit
+Bye
+$
+
+Use the sandbox to run MySQL 
+In the container, credentials are root/root 
+Ask for container Ubuntu 20.04
+Connect via SSH
+OR connect via the Web terminal
+In the container, you should start MySQL before playing with it: 
+$ service mysql start                                                   
+ * Starting MySQL database server mysqld 
+$
+$ cat 0-list_databases.sql | mysql -uroot -p                               
+Database                                                                                   
+information_schema                                                                         
+mysql                                                                                      
+performance_schema                                                                         
+sys                      
+$
+
+Install MySQLdb module version 2.0.x 
+For installing MySQLdb, you need to have MySQL installed: How to install MySQL 8.0 in Ubuntu 20.04 
+$ sudo apt-get install python3-dev
+$ sudo apt-get install libmysqlclient-dev
+$ sudo apt-get install zlib1g-dev
+$ sudo pip3 install mysqlclient
+...
+$ python3
+>>> import MySQLdb
+>>> MySQLdb.version_info 
+(2, 0, 3, 'final', 0)
+
+
+Install SQLAlchemy module version 1.4.x 
+$ sudo pip3 install SQLAlchemy
+...
+$ python3
+>>> import sqlalchemy
+>>> sqlalchemy.__version__ 
+'1.4.22'
+Web framework - API
+Install Flask 
+$ pip3 install Flask
+
+MySQL Default charset issues 
+If you get Flask errors after executing the curl ... commands, it might be because of the DEFAULT CHARSET. If it’s DEFAULT CHARSET=latam1, you might want to change it to DEFAULT CHARSET=utf8mb4, either on the server’s config file (/etc/mysql/my.cnf commonly) orm on the CREATE DATABASE statement. 
+
+--
+More Info 
+Install Node 14 
+$ curl -sL https://deb.nodesource.com/setup_14.x | sudo -E bash -
+$ sudo apt-get install -y nodejs
+ 
+Install semi-standard 
+Documentation 
+$ sudo npm install semistandard --global
+
+Web dynamic
+
+Import JQuery 
+<head>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+</head>
+ 
+Before starting the project… 
+You will work on a codebase using Flasgger, you will need to install it locally first before starting the RestAPI: 
+$ sudo apt-get install -y python3-lxml
+$ sudo pip3 install flask_cors # if it was not installed yet
+$ sudo pip3 install flasgger
+ 
+If the RestAPI is not starting, please read the error message. Based on the(ses) error message(s), you will have to troubleshoot potential dependencies issues. 
+Here some solutions: 
+jsonschema exception 
+$ sudo pip3 uninstall -y jsonschema 
+$ sudo pip3 install jsonschema==3.0.1
+ 
+No module named 'pathlib2' 
+$ sudo pip3 install pathlib2
+ 
+Expose ports from your Vagrant 
+In your Vagrantfile, add this line for each port forwarded 
+# I expose the port 5001 of my vm to the port 5001 on my computer
+config.vm.network :forwarded_port, guest: 5001, host: 5001 
+ 
+if you need to expose other ports, same line but you will need to replace the “guest port” (inside your vagrant) and your “host port” (outside your vagrant, used from your browser for example) 
+It’s important in your project, to use the BHTEST API with the port 5001 
