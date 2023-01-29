@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """ Starts a Flash Web Application """
 from models import storage
-from models.category import State
-from models.word import City
-from models.rol import Amenity
-from models.test import Place
+from models.category import Category
+from models.word import Word
+from models.user import User
+from models.test import Test
+from models.rol import Rol
 from os import environ
 from flask import Flask, render_template
 app = Flask(__name__)
@@ -18,26 +19,26 @@ def close_db(error):
     storage.close()
 
 
-@app.route('/hbnb', strict_slashes=False)
+@app.route('/bhtest', strict_slashes=False)
 def hbnb():
     """ HBNB is alive! """
-    states = storage.all(State).values()
-    states = sorted(states, key=lambda k: k.name)
+    categories = storage.all(Category).values()
+    categories = sorted(categories, key=lambda k: k.name)
     st_ct = []
 
-    for state in states:
-        st_ct.append([state, sorted(state.cities, key=lambda k: k.name)])
+    for category in categories:
+        st_ct.append([category, sorted(category.words, key=lambda k: k.name)])
 
-    amenities = storage.all(Amenity).values()
-    amenities = sorted(amenities, key=lambda k: k.name)
+    test = storage.all(Test).values()
+    test = sorted(test, key=lambda k: k.name)
 
-    places = storage.all(Place).values()
-    places = sorted(places, key=lambda k: k.name)
+    roles = storage.all(Rol).values()
+    roles = sorted(roles, key=lambda k: k.name)
 
     return render_template('100-hbnb.html',
-                           states=st_ct,
-                           amenities=amenities,
-                           places=places)
+                           categories=st_ct,
+                           test=test,
+                           roles=roles)
 
 
 if __name__ == "__main__":

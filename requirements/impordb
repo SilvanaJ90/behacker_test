@@ -1,0 +1,7 @@
+
+importar la base de datos
+cat dump_bh_profile_db.sql | mysql -uroot -p
+
+ejecutar flask server con la app
+
+HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db python3 -m web_flask.100-hbnb
