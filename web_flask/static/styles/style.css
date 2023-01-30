@@ -1,0 +1,31 @@
+.navbar-toggler {
+    border: 2.5px solid #dddddd;
+}
+
+.navbar-toggler:hover {
+    background: #845484;
+}
+
+.dropdown-menu{
+    background-color: #aaa;
+}
+
+.bg-purple-light:hover{
+    background: #845484;
+}
+
+.bg-purple{
+    background: linear-gradient(76.8deg, rgb(121, 45, 129) 3.6%, rgb(36, 31, 98) 90.4%);
+}
+
+.bg-table{
+    background: #845484;
+}
+
+.bg-grey-light:hover{
+    background: #dfdfdf;
+}
+
+.border-table{
+    border: #845484 solid 2px;
+}
