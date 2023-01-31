@@ -1,6 +1,6 @@
 
 importar la base de datos
-cat dump_bh_profile_db.sql | mysql -uroot -p
+cat dump_bh_profile_db.sql | sudo mysql -uroot -p
 
 ejecutar flask server con la app
 
