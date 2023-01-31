@@ -29,3 +29,22 @@
 .border-table{
     border: #845484 solid 2px;
 }
+
+.placesh1 {
+    display: flex;
+    margin-bottom: 18px;
+    margin-top: 20px;
+}
+
+.der {
+    margin-left: auto;
+    order: 2;
+}
+
+button {
+    padding: 14px 20px;
+    border: none;
+    background: linear-gradient(76.8deg, rgb(121, 45, 129) 3.6%, rgb(36, 31, 98) 90.4%);
+    color: white;
+    border-radius:15px;
+}
