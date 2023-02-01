@@ -23,6 +23,7 @@ def admin():
     return render_template("admin.html")
 
 @app.route("/ver_categorias")
+@app.route("/words")
 def ver_categorias():
     categories = storage.all(Category).values()
     categories = sorted(categories, key=lambda k: k.name)
@@ -33,6 +34,9 @@ def ver_categorias():
 
     return render_template("ver_categorias.html",
                                 categories=st_ct)
+
+
+        
 
 @app.route("/login")
 def login():
@@ -46,9 +50,6 @@ def registro():
 def crear_categoria():
     return render_template("crear_categoria.html")
 
-@app.route("/words")
-def words():
-    return render_template("words.html")
 
 if __name__ == "__main__":
     """ Main Function """
