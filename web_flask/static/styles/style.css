@@ -50,7 +50,7 @@
     order: 2;
 }
 
-button {
+.crear {
     padding: 2px 20px;
     border: none;
     background: linear-gradient(76.8deg, rgb(121, 45, 129) 3.6%, rgb(36, 31, 98) 90.4%);

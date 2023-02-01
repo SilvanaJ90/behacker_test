@@ -42,6 +42,14 @@ def login():
 def registro():
     return render_template("registro.html")
 
+@app.route("/crear_categoria")
+def crear_categoria():
+    return render_template("crear_categoria.html")
+
+@app.route("/words")
+def words():
+    return render_template("words.html")
+
 if __name__ == "__main__":
     """ Main Function """
     app.run(host='0.0.0.0', port=5000, debug=True)
