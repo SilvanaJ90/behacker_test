@@ -1,3 +1,7 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
 .navbar-toggler {
     border: 2.5px solid #dddddd;
 }
@@ -30,10 +34,15 @@
     border: #845484 solid 2px;
 }
 
+.size-container{
+    width: 60%;;
+}
+
 .placesh1 {
     display: flex;
-    margin-bottom: 18px;
-    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    width: 100%;
 }
 
 .bt-right {
@@ -58,6 +67,26 @@ td{
     border: #845484 solid 1px;
 }
 
-.size-container{
-    width: 50%;;
+.mg-left-right{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Hover nav */
+
+.hv-line:after{
+    content: "";
+    width: 0;
+    height: 4px;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transition: all 1s;
+    will-change: width;
+}
+
+.hv-line:hover:after{
+    width: 100%;
+    right: 0;
 }
