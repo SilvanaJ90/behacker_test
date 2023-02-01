@@ -36,15 +36,28 @@
     margin-top: 20px;
 }
 
-.der {
+.bt-right {
     margin-left: auto;
     order: 2;
 }
 
 button {
-    padding: 14px 20px;
+    padding: 2px 20px;
     border: none;
     background: linear-gradient(76.8deg, rgb(121, 45, 129) 3.6%, rgb(36, 31, 98) 90.4%);
     color: white;
     border-radius:15px;
+    height: 45px;
+}
+
+th{
+    border: #845484 solid 1px;
+}
+
+td{
+    border: #845484 solid 1px;
+}
+
+.size-container{
+    width: 50%;;
 }
