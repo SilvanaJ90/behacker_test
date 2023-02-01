@@ -2,16 +2,16 @@
     font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
+.dropdown-menu{
+    background-color: #aaa;
+}
+
 .navbar-toggler {
-    border: 2.5px solid #dddddd;
+    border: 2px solid #dddddd;
 }
 
 .navbar-toggler:hover {
     background: #845484;
-}
-
-.dropdown-menu{
-    background-color: #aaa;
 }
 
 .bg-purple-light:hover{
@@ -59,6 +59,10 @@
     height: 45px;
 }
 
+a{
+    text-decoration: none;
+}
+
 th{
     border: #845484 solid 1px;
 }
@@ -89,4 +93,9 @@ td{
 .hv-line:hover:after{
     width: 100%;
     right: 0;
+}
+
+.style-icon{
+    border: none;
+    background: transparent;
 }
