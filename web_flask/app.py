@@ -1,6 +1,11 @@
 #!/usr/bin/python3
 """ Starts a Flash Web Application """
-
+from models import storage
+from models.category import Category
+from models.word import Word
+from models.user import User
+from models.test import Test
+from models.rol import Rol
 from flask import Flask, render_template
 app = Flask(__name__)
 
@@ -19,7 +24,15 @@ def admin():
 
 @app.route("/ver_categorias")
 def ver_categorias():
-    return render_template("ver_categorias.html")
+    categories = storage.all(Category).values()
+    categories = sorted(categories, key=lambda k: k.name)
+    st_ct = []
+
+    for category in categories:
+        st_ct.append([category, sorted(category.words, key=lambda k: k.name)])
+
+    return render_template("ver_categorias.html",
+                                categories=st_ct)
 
 @app.route("/login")
 def login():
