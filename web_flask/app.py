@@ -13,15 +13,15 @@ app = Flask(__name__)
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("admin/index.html")
 
 @app.route("/index")
 def iindex():
-    return render_template("index.html")
+    return render_template("admin/index.html")
 
 @app.route("/admin")
 def admin():
-    return render_template("admin.html")
+    return render_template("admin/admin.html")
 
 @app.route("/ver_categorias")
 def ver_categorias():
@@ -32,7 +32,7 @@ def ver_categorias():
     for category in categories:
         st_ct.append([category, sorted(category.words, key=lambda k: k.name)])
 
-    return render_template("ver_categorias.html",
+    return render_template("admin/ver_categorias.html",
                                 categories=st_ct)
 
 @app.route('/words/<categories_id>', methods=['GET', 'POST'])
@@ -47,7 +47,7 @@ def words(categories_id):
     for category in categories:
         st_ct.append([category, sorted(category.words, key=lambda k: k.name)])
 
-    return render_template("words.html",
+    return render_template("admin/words.html",
                            categories=st_ct)
 
 @app.route('/delete/<categories_id>', methods=['GET', 'POST'])
@@ -60,7 +60,7 @@ def delete_category(categories_id):
         abort(404)
     storage.delete(categories)
     storage.save()
-    return redirect(url_for('ver_categorias'))
+    return redirect(url_for('admin/ver_categorias'))
 
 
 @app.route("/login")
@@ -73,7 +73,7 @@ def registro():
 
 @app.route("/crear_categoria")
 def crear_categoria():
-    return render_template("crear_categoria.html")
+    return render_template("admin/crear_categoria.html")
 
 
 if __name__ == "__main__":
