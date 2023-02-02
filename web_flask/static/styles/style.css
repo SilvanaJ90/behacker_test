@@ -63,11 +63,7 @@ a{
     text-decoration: none;
 }
 
-th{
-    border: #845484 solid 1px;
-}
-
-td{
+td, th{
     border: #845484 solid 1px;
 }
 
@@ -98,4 +94,20 @@ td{
 .style-icon{
     border: none;
     background: transparent;
+}
+
+.word-table{
+    padding: 10px;
+    margin: 6px;
+    font-size: 15px;
+}
+
+.category-table{
+    padding: 5px;
+    margin: 6px;
+    font-size: 20px;
+}
+
+.hd-table{
+    background: #eee;
 }
