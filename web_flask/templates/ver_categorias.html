@@ -76,51 +76,18 @@
                             </tr>
                         </thead>
                         <tbody>
-                            
-                            <tr class="bg-grey-light">
-                                <th scope="row" class="text-center">1</th>
-                                <td>Dominancia</td>
-                                <td class="text-center">
-                                    <button class="style-icon">
-                                        <a href="{{url_for('words')}}"><i class="fa-solid fa-align-justify mg-left-right"></i></a>
-                                    </button>
-                                    <i class="fa-sharp fa-solid fa-pencil mg-left-right"></i>
-                                    <i class="fa-regular fa-trash-can mg-left-right"></i>
-                                </td>
-                            </tr>
-                            <tr class="bg-grey-light">
-                                <th scope="row" class="text-center">2</th>
-                                <td>Cumplimiento</td>
-                                <td class="text-center">
-                                    <button class="style-icon">
-                                        <a href="{{url_for('words')}}"><i class="fa-solid fa-align-justify mg-left-right"></i></a>
-                                    </button>
-                                    <i class="fa-sharp fa-solid fa-pencil mg-left-right"></i>
-                                    <i class="fa-regular fa-trash-can mg-left-right"></i>
-                                </td>
-                            </tr>
-                            <tr class="bg-grey-light">
-                                <th scope="row" class="text-center">3</th>
-                                <td>Estabilidad</td>
-                                <td class="text-center">
-                                    <button class="style-icon">
-                                        <a href="{{url_for('words')}}"><i class="fa-solid fa-align-justify mg-left-right"></i></a>
-                                    </button>
-                                    <i class="fa-sharp fa-solid fa-pencil mg-left-right"></i>
-                                    <i class="fa-regular fa-trash-can mg-left-right"></i>
-                                </td>
-                            </tr>
-                            <tr class="bg-grey-light">
-                                <th scope="row" class="text-center">4</th>
-                                <td>Influencia</td>
-                                <td class="text-center">
-                                    <button class="style-icon">
-                                        <a href="{{url_for('words')}}"><i class="fa-solid fa-align-justify mg-left-right"></i></a>
-                                    </button>
-                                    <i class="fa-sharp fa-solid fa-pencil mg-left-right"></i>
-                                    <i class="fa-regular fa-trash-can mg-left-right"></i>
-                                </td>
-                            </tr>
+                            <tbody>
+                                {% for category in categories %}
+                                <tr class="bg-grey-light">
+                                    <td>{{loop.index}}</td>
+                                    <td>{{category[0].name}}</td>
+                                    <td><a href="/words/{{category[0].id}}"><i class="fa-solid fa-align-justify mg-left-right"></i></a>
+                                        <a i class="fa-sharp fa-solid fa-pencil"></i></a>
+                                        <a href="/delete/{{category[0].id}}"><i class="fa-regular fa-trash-can"></i></a>
+                                    </td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
                         </tbody>
                     </table>
                 </div>
