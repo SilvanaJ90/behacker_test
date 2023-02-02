@@ -6,7 +6,8 @@ from models.word import Word
 from models.user import User
 from models.test import Test
 from models.rol import Rol
-from flask import Flask, render_template
+from flask import Flask, render_template, abort, redirect, url_for
+
 app = Flask(__name__)
 
 
@@ -34,6 +35,33 @@ def ver_categorias():
     return render_template("ver_categorias.html",
                                 categories=st_ct)
 
+@app.route('/words/<categories_id>', methods=['GET', 'POST'])
+def words(categories_id):
+    """
+    words list
+    """
+    categories = storage.all(Category).values()
+    categories = sorted(categories, key=lambda k: k.name)
+    st_ct = []
+
+    for category in categories:
+        st_ct.append([category, sorted(category.words, key=lambda k: k.name)])
+
+    return render_template("words.html",
+                           categories=st_ct)
+
+@app.route('/delete/<categories_id>', methods=['GET', 'POST'])
+def delete_category(categories_id):
+    """
+    Deletes a Category Object
+    """
+    categories = storage.get(Category, categories_id)
+    if not categories:
+        abort(404)
+    storage.delete(categories)
+    storage.save()
+    return redirect(url_for('ver_categorias'))
+
 
 @app.route("/login")
 def login():
@@ -46,10 +74,6 @@ def registro():
 @app.route("/crear_categoria")
 def crear_categoria():
     return render_template("crear_categoria.html")
-
-@app.route("/words")
-def words():
-    return render_template("words.html")
 
 
 if __name__ == "__main__":
