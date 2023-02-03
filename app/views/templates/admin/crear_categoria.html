@@ -13,20 +13,28 @@
                 <div class="card-body">
 
                     <form action="{{url_for('app_views.create_categories')}}" method="get">
-                        <label for="nombre">Nombre:</label>
-                        <input required type="text" class="input" placeholder="name" name="name_category" id="name">
-                        <label for="descripcion">Descripción</label>
-                        <input required type="text" class="input" placeholder="description" name="description" id="description">
-                        <label for="precio">Precio</label>
-                        <input required type="text" class="input" placeholder="description" name="file_name" id="file_name">
-                        <button type="submit" class="button is-success mt-2">Guardar</button>
-                        <a href="{{url_for('app_views.create_categories')}}" class="button is-primary mt-2">Volver</a>
+
+                        <div class="mb-3">
+                            <label for="txtNombre" class="form-label">Nombre categoria</label>
+                            <input type="text" class="form-control" name="txtNombre" id="txtNombre" aria-describedby="helpId" placeholder="Escriba el nombre de la nueva categoria">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="txtDescripcion" class="form-label">Descripción</label>
+                            <textarea type="text" class="form-control" name="txtDescripcion" id="txtDescripcion" aria-describedby="helpId" placeholder="Escriba la descripcion de la categoria"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="txtArchivo" class="form-label">Archivo</label>
+                            <input type="file" class="form-control" name="txtArchivo" id="txtArchivo" aria-describedby="helpId" placeholder="Adjuntar">
+                        </div>
+                        
                     </form>
 
                 </div>
 
                 <div class="card-footer text-center">
-                    <button type="submit" ><b>Guardar</b></button>
+                    <button type="submit" class="btn bg-purple text-white"><b>Guardar</b></button>
                 </div>
 
             </div>
