@@ -1,0 +1,113 @@
+*{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.dropdown-menu{
+    background-color: #aaa;
+}
+
+.navbar-toggler {
+    border: 2px solid #dddddd;
+}
+
+.navbar-toggler:hover {
+    background: #845484;
+}
+
+.bg-purple-light:hover{
+    background: #845484;
+}
+
+.bg-purple{
+    background: linear-gradient(76.8deg, rgb(121, 45, 129) 3.6%, rgb(36, 31, 98) 90.4%);
+}
+
+.bg-table{
+    background: #845484;
+}
+
+.bg-grey-light:hover{
+    background: #dfdfdf;
+}
+
+.border-table{
+    border: #845484 solid 2px;
+}
+
+.size-container{
+    width: 60%;;
+}
+
+.placesh1 {
+    display: flex;
+    margin-bottom: 10px;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.bt-right {
+    margin-left: auto;
+    order: 2;
+}
+
+.crear {
+    padding: 2px 20px;
+    border: none;
+    background: linear-gradient(76.8deg, rgb(121, 45, 129) 3.6%, rgb(36, 31, 98) 90.4%);
+    color: white;
+    border-radius:15px;
+    height: 45px;
+}
+
+a{
+    text-decoration: none;
+}
+
+td, th{
+    border: #845484 solid 1px;
+}
+
+.mg-left-right{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+/* Hover nav */
+
+.hv-line:after{
+    content: "";
+    width: 0;
+    height: 4px;
+    background: #fff;
+    position: absolute;
+    bottom: 0;
+    right: 50%;
+    transition: all 1s;
+    will-change: width;
+}
+
+.hv-line:hover:after{
+    width: 100%;
+    right: 0;
+}
+
+.style-icon{
+    border: none;
+    background: transparent;
+}
+
+.word-table{
+    padding: 10px;
+    margin: 6px;
+    font-size: 15px;
+}
+
+.category-table{
+    padding: 5px;
+    margin: 6px;
+    font-size: 20px;
+}
+
+.hd-table{
+    background: #eee;
+}

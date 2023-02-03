@@ -1,0 +1,39 @@
+{% include 'cabecera.html' %}
+<br>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+        </div>
+        <div class="col-md-6">
+            <div class="card border-table">
+                <div class="card-header text-center">
+                    <b>Crear nueva categoria</b>
+                </div>
+                <div class="card-body">
+
+                    <form action="{{url_for('app_views.create_categories')}}" method="get">
+                        <label for="nombre">Nombre:</label>
+                        <input required type="text" class="input" placeholder="name" name="name_category" id="name">
+                        <label for="descripcion">Descripción</label>
+                        <input required type="text" class="input" placeholder="description" name="description" id="description">
+                        <label for="precio">Precio</label>
+                        <input required type="text" class="input" placeholder="description" name="file_name" id="file_name">
+                        <button type="submit" class="button is-success mt-2">Guardar</button>
+                        <a href="{{url_for('app_views.create_categories')}}" class="button is-primary mt-2">Volver</a>
+                    </form>
+
+                </div>
+
+                <div class="card-footer text-center">
+                    <button type="submit" ><b>Guardar</b></button>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+        </div>        
+    </div>
+</div>
+
+{% include 'pie_pagina.html' %}
