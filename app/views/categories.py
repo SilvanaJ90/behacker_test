@@ -50,7 +50,7 @@ def delete_categories(categories_id):
 
 @app_views.route('/crear_categorias', methods=['GET', 'POST'])
 def create_categories():
-        """    if request.method == "GET":
+    """if request.method == "GET":
         name = request.form.get['name_category']
         description = request.form.get['description']
         file_name = request.form['file_name']
@@ -59,7 +59,7 @@ def create_categories():
 
         storage.new(new_category)
         storage.save()"""
-        return render_template("crear_categoria.html")
+    return render_template("crear_categoria.html")
 
 @app_views.route('/calegoria/<categories_id>/words', methods=['GET', 'POST'])
 def words(categories_id):
