@@ -1,0 +1,533 @@
+TEST
+HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./test_get_count.py
+
+
+correr la api
+HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db HBNB_TYPE_STORAGE=db HBNB_API_HOST=0.0.0.0 HBNB_API_PORT=5000 python3 -m api.v1.app
+
+
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/status
+{
+  "status": "OK"
+}
+
+silvanaj@SJARAMILLO:$curl -X GET -s http://0.0.0.0:5000/api/v1/status -vvv 2>&1 | grep Content-Type
+< Content-Type: application/json
+
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/stats
+{
+  "categories": 4,
+  "roles": 2,
+  "test": 1,
+  "users": 2,
+  "words": 24
+}
+
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/nop
+{
+  "error": "Not found"
+}
+
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/nop -vvv
+Note: Unnecessary use of -X or --request, GET is already inferred.
+*   Trying 0.0.0.0:5000...
+* Connected to 0.0.0.0 (127.0.0.1) port 5000 (#0)
+> GET /api/v1/nop HTTP/1.1
+> Host: 0.0.0.0:5000
+> User-Agent: curl/7.81.0
+> Accept: */*
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 404 NOT FOUND
+< Server: Werkzeug/2.2.2 Python/3.10.6
+< Date: Sat, 04 Feb 2023 08:59:15 GMT
+< Content-Type: application/json
+< Content-Length: 27
+< Access-Control-Allow-Origin: 0.0.0.0
+< Connection: close
+< 
+{
+  "error": "Not found"
+}
+* Closing connection 0
+
+
+
+probar categories
+
+VER GET
+
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/categories/
+[
+  {
+    "__class__": "Category",
+    "description": null,
+    "file_name": null,
+    "id": "259a2c9b-195b-4e7d-bacb-c9704a0c1b9f",
+    "name": "Influencer"
+  },
+  {
+    "__class__": "Category",
+    "description": null,
+    "file_name": null,
+    "id": "e5b7ba6b-bfd4-471a-8974-c0a095624ebd",
+    "name": "Cumplimiento"
+  }
+]
+silvanaj@SJARAMILLO:$^C
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/categories/259a2c9b-195b-4e7d-bacb-c9704a0c1b9f
+{
+  "__class__": "Category",
+  "description": null,
+  "file_name": null,
+  "id": "259a2c9b-195b-4e7d-bacb-c9704a0c1b9f",
+  "name": "Influencer"
+}
+
+CREAR POST
+
+silvanaj@SJARAMILLO:$curl -X POST http://0.0.0.0:5000/api/v1/categories/ -H "Content-Type: application/json" -d '{"name": "Estabilidad"}' -vvv
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 0.0.0.0:5000...
+* Connected to 0.0.0.0 (127.0.0.1) port 5000 (#0)
+> POST /api/v1/categories/ HTTP/1.1
+> Host: 0.0.0.0:5000
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 23
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 201 CREATED
+< Server: Werkzeug/2.2.2 Python/3.10.6
+< Date: Mon, 06 Feb 2023 16:09:55 GMT
+< Content-Type: application/json
+< Content-Length: 195
+< Access-Control-Allow-Origin: 0.0.0.0
+< Connection: close
+< 
+{
+  "__class__": "Category",
+  "created_at": "2023-02-06T16:09:55.410719",
+  "id": "29f5b109-4cbb-4d92-94c9-d2d5a31929cc",
+  "name": "Estabilidad",
+  "updated_at": "2023-02-06T16:09:55.410852"
+}
+* Closing connection 0
+
+ACTUALIZAR PUT
+
+silvanaj@SJARAMILLO:$curl -X PUT http://0.0.0.0:5000/api/v1/categories/29f5b109-4cbb-4d92-94c9-d2d5a31929cc -H "Content-Type: application/json" -d '{"name": "Estabilidad is so cool"}'
+{
+  "__class__": "Category",
+  "description": null,
+  "file_name": null,
+  "id": "29f5b109-4cbb-4d92-94c9-d2d5a31929cc",
+  "name": "Estabilidad is so cool"
+}
+
+ELIMINAR DELETE
+
+silvanaj@SJARAMILLO:$curl -X DELETE http://0.0.0.0:5000/api/v1/categories/29f5b109-4cbb-4d92-94c9-d2d5a31929cc
+{}
+
+
+PRUEBAS words
+
+
+VER GET
+
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/categories/74b7b4d2-0fda-45c8-9618-6af8a75d061a/words
+[
+  {
+    "__class__": "Word",
+    "category_id": "74b7b4d2-0fda-45c8-9618-6af8a75d061a",
+    "id": "90c5cfad-dcfd-483a-a50c-a3d451d0b675",
+    "name": "atento"
+  },
+  {
+    "__class__": "Word",
+    "category_id": "74b7b4d2-0fda-45c8-9618-6af8a75d061a",
+    "id": "cc6651e7-32aa-4c33-acee-5f1579050924",
+    "name": "ecuanime"
+  }
+]
+
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/words/cc6651e7-32aa-4c33-acee-5f1579050924
+{
+  "__class__": "Word",
+  "category_id": "74b7b4d2-0fda-45c8-9618-6af8a75d061a",
+  "id": "cc6651e7-32aa-4c33-acee-5f1579050924",
+  "name": "ecuanime"
+}
+
+CREAR
+
+silvanaj@SJARAMILLO:$curl -X POST http://0.0.0.0:5000/api/v1/categories/98af9387-3dab-4615-b7e3-65214d19f379/words  -H "Content-Type: application/json" -d '{"name": "ecuanime"}' -vvv
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 0.0.0.0:5000...
+* Connected to 0.0.0.0 (127.0.0.1) port 5000 (#0)
+> POST /api/v1/categories/74b7b4d2-0fda-45c8-9618-6af8a75d061a/words HTTP/1.1
+> Host: 0.0.0.0:5000
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 20
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 201 CREATED
+< Server: Werkzeug/2.2.2 Python/3.10.6
+< Date: Mon, 06 Feb 2023 16:14:32 GMT
+< Content-Type: application/json
+< Content-Length: 245
+< Access-Control-Allow-Origin: 0.0.0.0
+< Connection: close
+< 
+{
+  "__class__": "Word",
+  "category_id": "74b7b4d2-0fda-45c8-9618-6af8a75d061a",
+  "created_at": "2023-02-06T16:14:32.383225",
+  "id": "cc6651e7-32aa-4c33-acee-5f1579050924",
+  "name": "ecuanime",
+  "updated_at": "2023-02-06T16:14:32.383314"
+}
+* Closing connection 0
+
+
+ACTUALIZAR
+
+silvanaj@SJARAMILLO:$curl -X PUT http://0.0.0.0:5000/api/v1/words/b610ede1-5917-4cad-8190-cce5f9cde03c  -H "Content-Type: application/json" -d '{"name": "paciente"}' -vvv
+*   Trying 0.0.0.0:5000...
+* Connected to 0.0.0.0 (127.0.0.1) port 5000 (#0)
+> PUT /api/v1/words/b610ede1-5917-4cad-8190-cce5f9cde03c HTTP/1.1
+> Host: 0.0.0.0:5000
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 20
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Server: Werkzeug/2.2.2 Python/3.10.6
+< Date: Mon, 06 Feb 2023 16:16:14 GMT
+< Content-Type: application/json
+< Content-Length: 153
+< Access-Control-Allow-Origin: 0.0.0.0
+< Connection: close
+< 
+{
+  "__class__": "Word",
+  "category_id": "74b7b4d2-0fda-45c8-9618-6af8a75d061a",
+  "id": "b610ede1-5917-4cad-8190-cce5f9cde03c",
+  "name": "paciente"
+}
+* Closing connection 0
+silvanaj@SJARAMILLO:$
+
+BORRAR
+
+silvanaj@SJARAMILLO:$curl -X DELETE http://0.0.0.0:5000/api/v1/words/b610ede1-5917-4cad-8190-cce5f9cde03c
+{}
+
+pruebas roles
+
+VER
+
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/roles/
+[
+  {
+    "__class__": "Rol",
+    "id": "8cd1ac55-00b3-41af-94f8-79e725f562e6",
+    "name": "admin"
+  },
+  {
+    "__class__": "Rol",
+    "id": "a45b1e04-d383-490d-89f2-62ae663f0acc",
+    "name": "user"
+  }
+]
+
+
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/roles/8cd1ac55-00b3-41af-94f8-79e725f562e6
+{
+  "__class__": "Rol",
+  "id": "8cd1ac55-00b3-41af-94f8-79e725f562e6",
+  "name": "admin"
+}
+
+CREAR
+
+silvanaj@SJARAMILLO:$curl -X POST http://0.0.0.0:5000/api/v1/roles/ -H "Content-Type: application/json" -d '{"name": "user"}' -vvv
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 0.0.0.0:5000...
+* Connected to 0.0.0.0 (127.0.0.1) port 5000 (#0)
+> POST /api/v1/roles/ HTTP/1.1
+> Host: 0.0.0.0:5000
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 16
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 201 CREATED
+< Server: Werkzeug/2.2.2 Python/3.10.6
+< Date: Mon, 06 Feb 2023 16:20:58 GMT
+< Content-Type: application/json
+< Content-Length: 183
+< Access-Control-Allow-Origin: 0.0.0.0
+< Connection: close
+< 
+{
+  "__class__": "Rol",
+  "created_at": "2023-02-06T16:20:58.520801",
+  "id": "a45b1e04-d383-490d-89f2-62ae663f0acc",
+  "name": "user",
+  "updated_at": "2023-02-06T16:20:58.520851"
+}
+* Closing connection 0
+silvanaj@SJARAMILLO:$
+
+ACTUALIZAR
+
+silvanaj@SJARAMILLO:$curl -X PUT http://0.0.0.0:5000/api/v1/roles/8d21e23f-5aa3-489b-b06c-6017b3cce26c -H "Content-Type: application/json" -d '{"name": "prueba is cool"}' -vvv
+*   Trying 0.0.0.0:5000...
+* Connected to 0.0.0.0 (127.0.0.1) port 5000 (#0)
+> PUT /api/v1/roles/8d21e23f-5aa3-489b-b06c-6017b3cce26c HTTP/1.1
+> Host: 0.0.0.0:5000
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 26
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Server: Werkzeug/2.2.2 Python/3.10.6
+< Date: Mon, 06 Feb 2023 16:23:32 GMT
+< Content-Type: application/json
+< Content-Length: 101
+< Access-Control-Allow-Origin: 0.0.0.0
+< Connection: close
+< 
+{
+  "__class__": "Rol",
+  "id": "8d21e23f-5aa3-489b-b06c-6017b3cce26c",
+  "name": "prueba is cool"
+}
+
+BORRAR
+
+silvanaj@SJARAMILLO:$curl -X DELETE http://0.0.0.0:5000/api/v1/roles/8d21e23f-5aa3-489b-b06c-6017b3cce26c
+{}
+
+
+users pruebas
+
+GET
+
+VER LORES Y USUARIOS 
+
+}
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/roles/243cd720-5cd1-4255-9224-e5c153088adf/users/
+[
+  {
+    "__class__": "User",
+    "email": "gui@hbtn.io",
+    "first_name": "Pepito",
+    "id": "94f5c269-b9f4-4e5a-92cd-9edbeb21712f",
+    "last_name": "Snow",
+    "rol_id": "243cd720-5cd1-4255-9224-e5c153088adf"
+  }
+
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/users
+[
+  {
+    "__class__": "User",
+    "email": "gui@hbtn.io",
+    "first_name": "Guillaume",
+    "id": "b96f1422-665f-416b-b95b-696b3e55194d",
+    "last_name": "Snow",
+    "rol_id": "489730f2-f6a8-4440-ab88-4deecbad1a15"
+  }
+]
+
+
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/users/b96f1422-665f-416b-b95b-696b3e55194d
+{
+  "__class__": "User",
+  "email": "gui@hbtn.io",
+  "first_name": "Guillaume",
+  "id": "b96f1422-665f-416b-b95b-696b3e55194d",
+  "last_name": "Snow",
+  "rol_id": "489730f2-f6a8-4440-ab88-4deecbad1a15"
+}
+
+DELETE
+}
+silvanaj@SJARAMILLO:$curl -X DELETE http://0.0.0.0:5000/api/v1/users/b96f1422-665f-416b-b95b-696b3e55194d
+{}
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/users/
+[]
+
+ACTUALIZAR
+silvanaj@SJARAMILLO:$curl -X PUT http://0.0.0.0:5000/api/v1/users/94f5c269-b9f4-4e5a-92cd-9edbeb21712f -H "Content-Type: application/json" -d '{"first_name": "Pepito"}'
+{
+  "__class__": "User",
+  "email": "gui@hbtn.io",
+  "first_name": "Pepito",
+  "id": "94f5c269-b9f4-4e5a-92cd-9edbeb21712f",
+  "last_name": "Snow",
+  "rol_id": "489730f2-f6a8-4440-ab88-4deecbad1a15"
+}
+silvanaj@SJARAMILLO:$curl -X PUT http://0.0.0.0:5000/api/v1/users/94f5c269-b9f4-4e5a-92cd-9edbeb21712f -H "Content-Type: application/json" -d '{"rol_id": "243cd720-5cd1-4255-9224-e5c153088adf"}'
+{
+  "__class__": "User",
+  "email": "gui@hbtn.io",
+  "first_name": "Pepito",
+  "id": "94f5c269-b9f4-4e5a-92cd-9edbeb21712f",
+  "last_name": "Snow",
+  "rol_id": "243cd720-5cd1-4255-9224-e5c153088adf"
+}
+
+CREAR
+silvanaj@SJARAMILLO:$curl -X POST http://0.0.0.0:5000/api/v1/roles/dc32135c-1f1e-4dac-8771-1b91289dd03e/users -H "Content-Type: application/json" -d '{"email": "prueba@hbtn.io", "password": "pru", "first_name": "prueba", "last_name": "Perez"}' -vvv
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 0.0.0.0:5000...
+* Connected to 0.0.0.0 (127.0.0.1) port 5000 (#0)
+> POST /api/v1/roles/243cd720-5cd1-4255-9224-e5c153088adf/users HTTP/1.1
+> Host: 0.0.0.0:5000
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 92
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 201 CREATED
+< Server: Werkzeug/2.2.2 Python/3.10.6
+< Date: Mon, 06 Feb 2023 18:46:30 GMT
+< Content-Type: application/json
+< Content-Length: 297
+< Access-Control-Allow-Origin: 0.0.0.0
+< Connection: close
+< 
+{
+  "__class__": "User",
+  "created_at": "2023-02-06T18:46:30.851432",
+  "email": "prueba@hbtn.io",
+  "first_name": "prueba",
+  "id": "be7101cf-c2ca-48dd-b19b-d8d05b1bd756",
+  "last_name": "Perez",
+  "rol_id": "243cd720-5cd1-4255-9224-e5c153088adf",
+  "updated_at": "2023-02-06T18:46:30.851512"
+}
+* Closing connection 0
+
+
+pruebas test
+
+GET
+
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/users/7413b6dd-463b-4ce2-8812-8524c08c7854
+{
+  "__class__": "User",
+  "email": "test1@hbtn.io",
+  "first_name": "Ian",
+  "id": "7413b6dd-463b-4ce2-8812-8524c08c7854",
+  "last_name": "Perez",
+  "rol_id": "489730f2-f6a8-4440-ab88-4deecbad1a15"
+}
+
+por id de test
+silvanaj@SJARAMILLO:$curl -X GET http://0.0.0.0:5000/api/v1/tests/feef9913-9744-4efd-8d49-2e9aafffa043
+{
+  "__class__": "Test",
+  "created_at": "2023-02-06T19:03:38.000000",
+  "id": "feef9913-9744-4efd-8d49-2e9aafffa043",
+  "name": "test1",
+  "result": null,
+  "updated_at": "2023-02-06T19:03:38.000000",
+  "user_id": "7413b6dd-463b-4ce2-8812-8524c08c7854"
+}
+
+
+
+CREAR
+
+silvanaj@SJARAMILLO:$curl -X POST http://0.0.0.0:5000/api/v1/users/b5d33685-4eec-429a-86c2-07e3ee8f8797/tests -H "Content-Type: application/json" -d '{"name": "test1"}' -vvv
+Note: Unnecessary use of -X or --request, POST is already inferred.
+*   Trying 0.0.0.0:5000...
+* Connected to 0.0.0.0 (127.0.0.1) port 5000 (#0)
+> POST /api/v1/users/fbfc2dab-21f2-4452-ab2d-0bf7b6809a73/tests HTTP/1.1
+> Host: 0.0.0.0:5000
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 17
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 201 CREATED
+< Server: Werkzeug/2.2.2 Python/3.10.6
+< Date: Mon, 06 Feb 2023 18:54:12 GMT
+< Content-Type: application/json
+< Content-Length: 238
+< Access-Control-Allow-Origin: 0.0.0.0
+< Connection: close
+< 
+{
+  "__class__": "Test",
+  "created_at": "2023-02-06T18:54:12.924607",
+  "id": "71180294-87ae-4234-a401-c6afb43c9cfa",
+  "name": "test1",
+  "updated_at": "2023-02-06T18:54:12.924719",
+  "user_id": "fbfc2dab-21f2-4452-ab2d-0bf7b6809a73"
+}
+* Closing connection 0
+
+
+ACTUALIZAR 
+
+silvanaj@SJARAMILLO:$curl -X PUT http://0.0.0.0:5000/api/v1/tests/71180294-87ae-4234-a401-c6afb43c9cfa -H "Content-Type: application/json" -d '{"name": "test2"}' -vvv
+*   Trying 0.0.0.0:5000...
+* Connected to 0.0.0.0 (127.0.0.1) port 5000 (#0)
+> PUT /api/v1/tests/71180294-87ae-4234-a401-c6afb43c9cfa HTTP/1.1
+> Host: 0.0.0.0:5000
+> User-Agent: curl/7.81.0
+> Accept: */*
+> Content-Type: application/json
+> Content-Length: 17
+> 
+* Mark bundle as not supporting multiuse
+< HTTP/1.1 200 OK
+< Server: Werkzeug/2.2.2 Python/3.10.6
+< Date: Mon, 06 Feb 2023 18:58:29 GMT
+< Content-Type: application/json
+< Content-Length: 256
+< Access-Control-Allow-Origin: 0.0.0.0
+< Connection: close
+< 
+{
+  "__class__": "Test",
+  "created_at": "2023-02-06T18:54:13.000000",
+  "id": "71180294-87ae-4234-a401-c6afb43c9cfa",
+  "name": "test2",
+  "result": null,
+  "updated_at": "2023-02-06T18:54:13.000000",
+  "user_id": "fbfc2dab-21f2-4452-ab2d-0bf7b6809a73"
+}
+* Closing connection 
+
+ELIMINAR
+
+silvanaj@SJARAMILLO:$curl -X DELETE http://0.0.0.0:5000/api/v1/tests/71180294-87ae-4234-a401-c6afb43c9cfa
+{}
+
+pruebas user_test
+
+POST
+
+silvanaj@SJARAMILLO:$curl -X POST http://0.0.0.0:5000/api/v1/tests/f2c473fc-c772-4bcc-8dba-b08060ef8c83/words/7e29e3ea-67b5-4a53-b691-ae9614aa64bd
+{
+  "__class__": "Word",
+  "category_id": "98af9387-3dab-4615-b7e3-65214d19f379",
+  "id": "7e29e3ea-67b5-4a53-b691-ae9614aa64bd",
+  "name": "ecuanime"
+}
