@@ -1,0 +1,30 @@
+get a list of test based on the user
+---
+tags:
+  - Test
+parameters:
+  - name: user_id
+    in: path
+    type: string
+    required: true
+    description: The uniqe id of the user
+responses:
+  404:
+    description: No user is linked to the ID!
+  200:
+    description: Request completed successfully
+    schema:
+      type: array
+      items:
+        properties:
+          __class__:
+            type: string
+          id:
+            type: string
+            description: The uuid of the instance
+          category_id:
+             type: string
+             description: uuid of the users's test
+          name:
+             type: string
+             description: test name

@@ -1,0 +1,24 @@
+    Links a Word to a Test
+    ---
+    tags:
+      - User_Test
+    parameters:
+      - name: test_id
+        in: path
+        type: string
+        required: true
+        description: The id of the Word
+      - name: word_id
+        in: path
+        type: string
+        required: true
+        description: The id of the Place to link to
+
+
+    responses:
+      404:
+        description: resource not found!
+      201:
+        description: Successful request
+      200:
+        description: Word already linked to Test

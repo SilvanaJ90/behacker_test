@@ -1,0 +1,25 @@
+gets rol by ID
+---
+tags:
+  - Roles
+parameters:
+  - name: rol_id
+    in: path
+    type: string
+    required: true
+    description: The id of the rol
+responses:
+  404:
+    description: rol not found.
+  200:
+    description: request executed successfully
+    schema:
+      properties:
+        __class__:
+          type: string
+        id:
+          type: string
+          description: The uuid of the instance
+        name:
+           type: string
+           description: rol name

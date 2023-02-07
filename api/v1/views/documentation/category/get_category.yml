@@ -1,0 +1,25 @@
+Gets the list of all Categories
+---
+tags:
+  - Category
+responses:
+  200:
+    description: Successful request
+    schema:
+      type: array
+      items:
+        properties:
+          __class__:
+            type: string
+          id:
+            type: string
+            description: The uuid of the category instance
+          name:
+            type: string
+            description: category name
+          description:
+            type: string
+            description: information about the category
+          file_name:
+            type: string
+            description: files containing category information

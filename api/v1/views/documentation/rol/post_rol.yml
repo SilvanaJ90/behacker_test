@@ -1,0 +1,19 @@
+    Links an rol object to a place
+    ---
+    tags:
+      - Roles
+    parameters:
+      - name: rol_id
+        in: body
+        required: true
+        requires:
+          - name
+        properties:
+          name:
+            type: string
+
+    responses:
+      400:
+        description: Not a JSON
+      201:
+        description: request executed successfully

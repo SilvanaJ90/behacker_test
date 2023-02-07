@@ -1,0 +1,26 @@
+get a specific word  based on the category_id
+---
+tags:
+  - Words
+parameters:
+  - name: word_id
+    in: path
+    type: string
+    required: true
+    description: The uniqe id of the word
+responses:
+  200:
+    description: Successful request
+    schema:
+      properties:
+        __class__:
+          type: string
+        id:
+          type: string
+          description: The uuid of the instance
+        category_id:
+           type: string
+           description: uuid of the word's Category
+        name:
+           type: string
+           description: word name

@@ -1,0 +1,20 @@
+    Deletes an words from a test based on the ids provided
+    ---
+    tags:
+      - User_Test
+    parameters:
+      - name: words_id
+        in: path
+        type: string
+        required: true
+        description: The uuid of the place with the word
+      - name: test_id
+        in: path
+        type: string
+        required: true
+        description: The uuid of the word to delete
+    responses:
+      404:
+        description: Word or Test not found!
+      200:
+        description: Deletion request sucessful

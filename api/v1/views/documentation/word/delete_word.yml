@@ -1,0 +1,15 @@
+    deletes a word based on id
+    ---
+    tags:
+      - Words
+    parameters:
+      - name: word_id
+        in: path
+        type: string
+        required: true
+        description: id of the word
+    responses:
+      404:
+        description: Word not found!
+      200:
+        description: Request completed successfully
