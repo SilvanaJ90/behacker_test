@@ -5,7 +5,7 @@
                     <div class="placesh1">
                         <h1 class="is-size-3 text-center">Categorías</h1>
                         <button class="bt-right bg-purple-light crear">
-                            <a href="{{url_for('app_views.create_categories')}}"><b class="text-white">Crear</b></a>
+                            <a href="{{url_for('app_routes.create_categories')}}"><b class="text-white">Crear</b></a>
                         </button>
                     </div>
 
@@ -24,9 +24,9 @@
                                     <td>{{loop.index}}</td>
                                     <td>{{category[0].name}}</td>
                                     <td class="text-center">
-                                        <a href="{{ url_for('app_views.words', categories_id=category[0].id) }}"><i class="fa-solid fa-align-justify mg-left-right"></i></a>
+                                        <a href="{{ url_for('app_routes.words', categories_id=category[0].id) }}"><i class="fa-solid fa-align-justify mg-left-right"></i></a>
                                         <a><i class="fa-sharp fa-solid fa-pencil mg-left-right"></i></a>
-                                        <a href="{{ url_for('app_views.delete_categories', categories_id=category[0].id) }}"><i class="fa-regular fa-trash-can mg-left-right"></i></a>
+                                        <a href="{{ url_for('app_routes.delete_categories', categories_id=category[0].id) }}"><i class="fa-regular fa-trash-can mg-left-right"></i></a>
                                     </td>
                                     </tr>
                                 {% endfor %}

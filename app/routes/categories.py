@@ -2,24 +2,24 @@
 """ objects that handle all default Categories"""
 from models.category import Category
 from models import storage
-from app.views import app_views
+from app.routes import app_routes
 from flask import abort, jsonify, make_response, request, render_template, redirect, url_for
 from flasgger.utils import swag_from
 
-@app_views.route('/')
+@app_routes.route('/')
 def index():
     return render_template('index.html')
 
-@app_views.route('/index')
+@app_routes.route('/index')
 def iindex():
     return render_template("index.html")
 
 
-@app_views.route("/admin")
+@app_routes.route("/admin")
 def admin():
     return render_template("admin.html")
 
-@app_views.route('/ver_categorias', methods=['GET'], strict_slashes=False)
+@app_routes.route('/ver_categorias', methods=['GET'], strict_slashes=False)
 def get_categories():
     """
     Retrieves the list of all Categories objects
@@ -36,7 +36,7 @@ def get_categories():
 
 
 
-@app_views.route('/ver_categorias/<categories_id>', methods=['GET', 'POST'])
+@app_routes.route('/ver_categorias/<categories_id>', methods=['GET', 'POST'])
 def delete_categories(categories_id):
     """
     Deletes a Category Object
@@ -48,7 +48,7 @@ def delete_categories(categories_id):
     storage.save()
     return redirect(url_for('app_views.get_categories'))
 
-@app_views.route('/crear_categorias', methods=['GET', 'POST'])
+@app_routes.route('/crear_categorias', methods=['GET', 'POST'])
 def create_categories():
     """if request.method == "GET":
         name = request.form.get['name_category']
@@ -61,7 +61,7 @@ def create_categories():
         storage.save()"""
     return render_template("crear_categoria.html")
 
-@app_views.route('/calegoria/<categories_id>/words', methods=['GET', 'POST'])
+@app_routes.route('/calegoria/<categories_id>/words', methods=['GET', 'POST'])
 def words(categories_id):
     """
     words list
