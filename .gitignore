@@ -1,2 +1,9 @@
 web_flask/_pycache_
 models/_pycache_
+api/__pycache__
+api/v1/__
+api/v1/views/__
+app/__pycache__
+app/routes/__pycache__
+models/__pycache__
+models/engine/__pycache__
