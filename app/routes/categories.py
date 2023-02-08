@@ -46,7 +46,7 @@ def delete_categories(categories_id):
         abort(404)
     storage.delete(categories)
     storage.save()
-    return redirect(url_for('app_views.get_categories'))
+    return redirect(url_for('app_routes.get_categories'))
 
 @app_routes.route('/crear_categorias', methods=['GET', 'POST'])
 def create_categories():
