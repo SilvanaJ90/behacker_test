@@ -8,7 +8,6 @@
                             <a href="{{url_for('app_routes.create_categories')}}"><b class="text-white">Crear</b></a>
                         </button>
                     </div>
-
                     <table class="table border-table">
                         <thead>
                             <tr class="bg-purple text-center text-white">
@@ -25,7 +24,7 @@
                                     <td>{{category[0].name}}</td>
                                     <td class="text-center">
                                         <a href="{{ url_for('app_routes.words', categories_id=category[0].id) }}"><i class="fa-solid fa-align-justify mg-left-right"></i></a>
-                                        <a><i class="fa-sharp fa-solid fa-pencil mg-left-right"></i></a>
+                                        <a><i class="fa-sharp fa-solid fa-pencil mg-left-right" ></i></a>
                                         <a href="{{ url_for('app_routes.delete_categories', categories_id=category[0].id) }}"><i class="fa-regular fa-trash-can mg-left-right"></i></a>
                                     </td>
                                     </tr>
@@ -36,4 +35,46 @@
                 </div>
             </article>
         </section>
+        <article>
+
+            <section class="crud">
+              <article>
+                <h2 class="crud-title">Agregar categoria</h2>
+                <form class="crud-form">
+                  <input type="text" name="name" placeholder="nombre" required>
+                  <br>
+                  <input type="text" name="description" placeholder="descripcion">
+                  <br>
+                  <input type="file" name="file_name" placeholder="Adjuntar un Archivo">
+                  <br>
+
+                  <input type="submit" value="enviar">
+                  <input type="hidden" name="id">
+                </form>
+              </article>
+              <article>
+                <h2>ver categorias</h2>
+                <table class="crud-table">
+                  <thead>
+                    <tr>
+                      <th>#</th>
+                      <th>nombre</th>
+                      <th>Acciones</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+              </article>
+            </section>
+            <template id="crud-template">
+              <tr>
+                <td></td>
+                <td class="name"></td>
+                <td>
+                  <button class="edit">editar</button>
+                  <button class="delete">eliminar</button>
+                </td>
+              </tr>
+            </template>
+
 {% include 'pie_pagina.html' %}

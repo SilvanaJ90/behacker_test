@@ -1,0 +1,61 @@
+{% include 'cabecera.html' %}
+        <section>
+            <article>
+                <div class="container size-container">
+                    <div class="placesh1">
+                        <h1 class="is-size-3 text-center">Categorías</h1>
+                        <button class="bt-right bg-purple-light crear">
+                            <a href="{{url_for('app_routes.create_categories')}}"><b class="text-white">Crear</b></a>
+                        </button>
+                    </div>
+                    <section class="crud">
+                      <article>
+                        <h2 class="crud-title">Agregar categoria</h2>
+                        <form class="crud-form">
+                          <input type="text" name="name" placeholder="nombre" required>
+                          <input type="text" name="description" placeholder="descripcion">
+                          <input type="file" name="file_name" placeholder="Adjuntar un Archivo">
+                          <br>
+                          <br>
+                          <input type="submit" value="enviar">
+                        <button>limpiar</button>
+                        <input type="hidden" name="id">
+                      </form>
+                    </article>
+                    <article>
+                      <h2>ver categorias</h2>
+                      <br>
+                     
+                      <table class="crud-table">
+                       
+                        <thead>
+                          
+                            <tr class="bg-purple text-center text-white">
+                                <th scope="row">#</th>
+                                <th scope="col" width="550px">Nombre</th>
+                                <th scope="col">Acciones</th>
+                            </tr>
+                        </thead>
+                      
+                        <tbody></tbody>
+                      </table>
+                      
+                      <template id="crud-template">
+                        <tr>
+                          <td class="index"></td>
+                          <td class="name"></td>
+                          <td>
+                            <button href="#" class="words"><i class="fa-solid fa-align-justify mg-left-right"></i></button>
+                            <button class="edit">Editar<i class="fa-sharp fa-solid fa-pencil mg-left-right" ></i></button>
+                            <button class="delete">Eliminar<i class="fa-regular fa-trash-can mg-left-right"></i></button>
+                      
+                          </td>
+                        </tr>
+                        
+                      </template>
+                </div>
+            </article>
+        </section>
+
+
+{% include 'pie_pagina.html' %}

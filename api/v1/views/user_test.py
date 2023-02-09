@@ -11,9 +11,9 @@ from flasgger.utils import swag_from
 
 @app_views.route('tests/<test_id>/words', methods=['GET'],
                  strict_slashes=False)
-@swag_from('documentation/test_word/get_tests_words.yml',
+@swag_from('documentation/user_test/get_user_test.yml',
            methods=['GET'])
-def get_test_words(test_id):
+def get_user_tests(test_id):
     """
     Retrieves the list of all word objects of a test
     """
@@ -33,9 +33,9 @@ def get_test_words(test_id):
 
 @app_views.route('/tests/<test_id>/words/<word_id>',
                  methods=['DELETE'], strict_slashes=False)
-@swag_from('documentation/test_word/delete_test_words.yml',
+@swag_from('documentation/user_test/delete_user_test.yml',
            methods=['DELETE'])
-def delete_test_word(test_id, word_id):
+def delete_user_test(test_id, word_id):
     """
     Deletes a word object of a test
     """
@@ -64,9 +64,9 @@ def delete_test_word(test_id, word_id):
 
 @app_views.route('/tests/<test_id>/words/<word_id>', methods=['POST'],
                  strict_slashes=False)
-@swag_from('documentation/test_word/post_test_words.yml',
+@swag_from('documentation/user_test/post_user_test.yml',
            methods=['POST'])
-def post_test_word(test_id, word_id):
+def post_user_test(test_id, word_id):
     """
     Link a word object to a test
     """
