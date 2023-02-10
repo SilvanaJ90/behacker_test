@@ -8,38 +8,40 @@
         <div class="col-md-6">
             <div class="card border-table">
                 <div class="card-header text-center">
-                    <b class="crud-title">Agregar categoria</b>
+                    <b>Crear nueva categoria</b>
                 </div>
                 <div class="card-body">
-                <section class="crud">
-                    <article>
-                    <form class="crud-form">
+
+                    <form action="{{url_for('app_routes.create_categories')}}" method="get">
 
                         <div class="mb-3">
-                            <label for="name" class="form-label">Nombre categoria</label>
-                            <input type="text" class="form-control" name="name" id="name" aria-describedby="helpId" placeholder="Escriba el nombre de la nueva categoria" required>
+                            <label for="txtNombre" class="form-label">Nombre categoria</label>
+                            <input type="text" class="form-control" name="txtNombre" id="txtNombre" aria-describedby="helpId" placeholder="Escriba el nombre de la nueva categoria">
                         </div>
 
                         <div class="mb-3">
-                            <label for="description" class="form-label">Descripción</label>
-                            <textarea type="text" class="form-control" name="description" id="description" aria-describedby="helpId" placeholder="Escriba la descripcion de la categoria"></textarea>
+                            <label for="txtDescripcion" class="form-label">Descripción</label>
+                            <textarea type="text" class="form-control" name="txtDescripcion" id="txtDescripcion" aria-describedby="helpId" placeholder="Escriba la descripcion de la categoria"></textarea>
                         </div>
 
                         <div class="mb-3">
-                            <label for="file_name" class="form-label">Archivo</label>
-                            <input type="file" class="form-control" name="file_name" id="file_name" aria-describedby="helpId" placeholder="Adjuntar">
-                        </div>
-                        <div class="card-footer text-center">
-                            <input type="submit" value="enviar">
-                            <input type="hidden" name="id">
+                            <label for="txtArchivo" class="form-label">Archivo</label>
+                            <input type="file" class="form-control" name="txtArchivo" id="txtArchivo" aria-describedby="helpId" placeholder="Adjuntar">
                         </div>
                         
                     </form>
 
-                </article>
+                </div>
 
-              </section>
-              <template id="crud-template">
-              </template>
+                <div class="card-footer text-center">
+                    <button type="submit" class="btn bg-purple text-white"><b>Guardar</b></button>
+                </div>
+
+            </div>
+        </div>
+        <div class="col-md-3">
+        </div>        
+    </div>
+</div>
 
 {% include 'pie_pagina.html' %}
