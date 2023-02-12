@@ -1,0 +1,58 @@
+{% include 'cabecera.html' %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3"></div>
+
+        <div class="col-md-6">
+            <div class="card border-table">
+                <div class="card-header text-center">
+                    <b>Registrarse</b>
+                </div>
+                <div class="card-body">
+                    <form action="/admin/login" method="post">
+
+                        
+
+                        <div class="mb-3">
+                            <label for="txtUsuario" class="form-label">Nombre</label>
+                            <input type="text" class="form-control" name="txtUsuario" id="txtUsuario" aria-describedby="helpId" placeholder="Escriba su nombre">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="txtPassword" class="form-label">Apellido</label>
+                            <input type="text" class="form-control" name="txtPassword" id="txtPassword" aria-describedby="helpId" placeholder="Escriba su apellido">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="txtPassword" class="form-label">Correo</label>
+                            <input type="email" class="form-control" name="txtPassword" id="txtPassword" aria-describedby="helpId" placeholder="Escriba su correo electronico">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="txtPassword" class="form-label">Contraseña</label>
+                            <input type="password" class="form-control" name="txtPassword" id="txtPassword" aria-describedby="helpId" placeholder="Escriba su contraseña">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="txtPassword" class="form-label">Confirmar contraseña</label>
+                            <input type="password" class="form-control" name="txtPassword" id="txtPassword" aria-describedby="helpId" placeholder="Repita su contraseña">
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn text-white btn-login"><b>Registrarse</b></button>
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer text-muted">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="" value="option1">
+                        <label class="form-check-label" for=""><a href="#">Acepto terminos y condiciones</a></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'pie_pagina.html' %}
