@@ -24,7 +24,6 @@ let app = {
       columns : [
         {data : "id"},
         {data : "name"},
-        {data : "description"},
         {data : "file_name"}
       ],
       buttons: [
