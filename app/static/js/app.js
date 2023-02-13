@@ -1,101 +1,122 @@
-const d = document,
-  $table = d.querySelector(".crud-table"),
-  $form = d.querySelector(".crud-form"),
-  $title = d.querySelector(".crud-title"),
-  $template = d.getElementById("crud-template").content,
-  $fragment = d.createDocumentFragment();
-const ajax =(options)=> {
-  let {url, method, success, error, data} = options;
-  const xhr = new XMLHttpRequest();
-  xhr.addEventListener("readystatechange", e=>{
-    if(xhr.readyState !== 4)return;
+let app = {
+  backend: 'http://0.0.0.0:5001/api/v1',
+  table : null,
+  init: function() {
+    app.initDatatable('#categoria');
 
-    if(xhr.status >= 200 && xhr.status < 300){
-    let json = JSON.parse(xhr.responseText);
-      success(json);
-    }else{
-      let message = xhr.statusText || "Ocurrio un error";
-      error('Error ${xhr.status}:${message}');
-    }
-  });
-  xhr.open(method || "GET", url);
-  xhr.setRequestHeader("content-Type","application/json;charset=utf-8");
-  xhr.send(JSON.stringify(data));
-}
-const getAll =()=> {
-  ajax({
-    method: "GET",
-    url: "http://0.0.0.0:5001/api/v1/categories",
-    success: (res) => {
-      console.log(res);
-      res.forEach(el => {
-        $template.querySelector(".name").textContent = el.name;
-        $template.querySelector(".edit").dataset.id = el.id;
-        $template.querySelector(".edit").dataset.name = el.name;
-        $template.querySelector(".edit").dataset.description = el.description;
-        $template.querySelector(".edit").dataset.file_name = el.file_name;
-        $template.querySelector(".delete").dataset.id = el.id;
-        let $clone = d.importNode($template, true);
-        $fragment.appendChild($clone);
+      $("#save").click(function(){
+        app.save({
+            name : $('#name').val(),
+            description: $('#description').val(),
+            file_name: $('#file_name').val()
+        });
       });
-      $table.querySelector("tbody").appendChild($fragment);
-    },
-    error:(err) => {
-      console.log(err);
-      $table.insertAdjacentHTML("afterend",'<p><b>${err}</b></p>');
-    }
-  })
-}
-d.addEventListener("DOMContentLoaded", getAll);
-
-d.addEventListener("submit", e => {
-  if(e.target === $form){
-    e.preventDefault();
-    if(!e.target.id.value){
-      // create POST
-      ajax({
-        url: "http://0.0.0.0:5001/api/v1/categories",
-        method: "POST",
-        success:(res)=>location.reload(),
-        error: () => $form.insertAdjacentHTML("afterend", '<p><b>${err}</b</p>'),
-        data: {
-          name:e.target.name.value,
-          description:e.target.description.value,
-          file_name:e.target.file_name.value
+   },
+  initDatatable : function(id) {
+    app.table = $(id).DataTable({
+      ajax : {
+        url : app.backend + '/categories',
+        dataSrc : function(json) {
+          return json;
         }
-      });
-    }else{
-        //UPDATE PUT
-      ajax({
-        url: `http://0.0.0.0:5001/api/v1/categories/${e.target.id.value}`,
-        method: "PUT",
-        success: (res)=>location.reload(),
-        error: () => $form.insertAdjacentHTML("afterend", '<p><b>${err}</b</p>'),
-        data: {
-          name: e.target.name.value
+      },
+      dom: 'Bfrtip',
+      columns : [
+        {data : "id"},
+        {data : "name"},
+        {data : "description"},
+        {data : "file_name"}
+      ],
+      buttons: [
+        {
+          text : 'Crear',
+          action : function(e, dt, node, config) {
+            app.cleanForm();
+              $('#categoriaModal').modal();
+          }
+        },
+        {
+          text : '<i class="fa-regular fa-trash-can mg-left-right"></i>',
+          action : function(e, dt, node, config) {
+            let data = dt.rows('.table-active').data()[0];
+              if (confirm('Esta seguro que desea eliminar la categoría')) {
+                app.delete(data.id)
+              }
+          }
+        },
+        {
+          text : '<i class="fa-solid fa-align-justify mg-left-right"></i>',
+          action : function(e, dt, node, config) {
+            $('#categoriaModal').modal();
+          }
+        },
+        {
+          text : '<i class="fa-sharp fa-solid fa-pencil mg-left-right" ></i>',
+          action : function(e, dt, node, config) {
+            var data = dt.rows('.table-active').data()[0];
+            app.setDataToModal(data);
+            $('#categoriaModal').modal();
+          }
         }
-      });
-    }
+      ]
+    });
+    $('#categoria tbody').on('click', 'tr', function(){
+      if ($(this).hasClass('table-active')) {
+        $(this).removeClass('table-active');
+      } else {
+        app.table.$('tr.table-active').removeClass('table-active');
+        $(this).addClass('table-active');
+      }
+    });
+  },
+  setDataToModal : function(data) {
+    $('#name').val(data.name);
+    $('#description').val(data.description);
+    $('#file_name').val(data.file_name);
+  },
+  cleanForm: function(){
+    $('#name').val('');
+    $('#description').val('');
+    $('#file_name').val('');
+  },
+  save : function(data) {
+    $.ajax({
+      url: app.backend + '/categories',
+      data : JSON.stringify(data),
+      method: 'POST',
+      dataType : 'json',
+      contentType: "application/json; charset=utf-8",
+      success : function(json) {
+        $("#msg").text('Se guardó la categoría correctamente');
+        $("#msg").show();
+        $('#categoriaModal').modal('hide');
+        app.table.ajax.reload();
+      },
+      error : function(error) {
+        $("#msg").text(error.error);
+        $("#msg").show();
+      }
+    })
+},
+  delete : function(id) {
+    $.ajax({
+      url: app.backend + '/categories/'+id,
+      method: 'DELETE',
+      dataType : 'json',
+      contentType: "application/json; charset=utf-8",
+      success : function(json) {
+        $("#msg").text('Se eliminó  la categoría correctamente');
+        $("#msg").show();
+        app.table.ajax.reload();
+      },
+      error : function(error) {
+        $("#msg").text(error.error);
+        $("#msg").show();
+      }
+    })
   }
+};
+
+$(document).ready(function(){
+  app.init();
 });
-
-d.addEventListener("click", e=> {
-  if(e.target.matches(".edit")){
-    $title.textContent = "Editar Categoria";
-    $form.name.value = e.target.dataset.name;
-    $form.id.value = e.target.dataset.id;
-  }
-  if(e.target.matches(".delete")){
-    let isDelete = confirm(`¿Esta seguro de eliminar el id${e.target.dataset.id}?`);
-    if(isDelete){
-    //Delete
-      ajax({
-        url: `http://0.0.0.0:5001/api/v1/categories/${e.target.dataset.id}`,
-        method: "DELETE",
-        success: (res) => location.reload(),
-        error: () => alert(err)
-      });
-    }
-  }
-})
-  
