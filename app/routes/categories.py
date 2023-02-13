@@ -61,8 +61,8 @@ def create_categories():
         storage.save()"""
     return render_template("crear_categoria.html")
 
-@app_routes.route('/calegoria/<categories_id>/words', methods=['GET', 'POST'])
-def words(categories_id):
+@app_routes.route('/palabras', methods=['GET', 'POST'])
+def words():
     """
     words list
     """
