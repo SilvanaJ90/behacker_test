@@ -1,4 +1,4 @@
-{% include 'cabecera.html' %}
+{% include 'cabecera_user.html' %}
 
 <div class="container">
     <div class="row">
@@ -40,7 +40,7 @@
                         </div>
 
                         <div class="text-center">
-                            <button type="submit" class="btn text-white btn-login"><b>Registrarse</b></button>
+                            <button type="submit" class="btn text-white btn-login"><b><a href="{{url_for('app_routes.index')}}">Registrarse</a></b></button>
                         </div>
                     </form>
                 </div>

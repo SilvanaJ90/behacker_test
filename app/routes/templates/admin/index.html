@@ -1,5 +1,44 @@
-{% include 'cabecera.html' %}
+{% include 'cabecera_user.html' %}
 
-    <h1>Index admin</h1>
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-4"></div>
+
+        <div class="col-md-4">
+            <div class="card border-table">
+                <div class="card-header text-center">
+                    <b>Inicio de sesión</b>
+                </div>
+                <div class="text-center">
+                    <img class="style-icon-login" src="https://cdn-icons-png.flaticon.com/512/6681/6681204.png" alt="Login">
+                </div>
+                <div class="card-body">
+                    <form action="/admin/login" method="post" id="form">
+
+                        <div class="mb-3">
+                            <label for="txtUsuario" class="form-label">Usuario</label>
+                            <input type="email" class="form-control" name="email" id="email" aria-describedby="helpId" placeholder="Escriba su Email">
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="txtPassword" class="form-label">Contraseña</label>
+                            <input type="text" class="form-control " name="txtPassword" id="txtPassword" aria-describedby="helpId" placeholder="Escriba su Contraseña">
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn text-white btn-login"><b><a href="{{url_for('app_routes.test')}}">Entrar</a></b></button>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <a href="{{url_for('app_routes.registro')}}">Registrarse</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
 
 {% include 'pie_pagina.html' %}
