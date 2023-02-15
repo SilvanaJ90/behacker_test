@@ -141,27 +141,23 @@ let app = {
             }
         })
     },
-    load_words : function(id) {
+        load_words : function(id) {
         $.ajax({
             url: app.backend + '/categories/'+id+ '/words',
             method: 'GET',
             dataType : 'json',
             contentType: "application/json; charset=utf-8",
             success : function(data) {
-                $.each(data, function(i, item) {
-                    $('#categoria').empty();
-                    $('#categoria').html(`
-                    <tr>
-                        <th>Categoria</th>
-                        <th>#</th>
-                        <th>Palabra</th>
-                    </tr>
-                    <tr>
-                        <td>${item.name}</td>
-                        <td>${item.id}</td>
-                        <td>${item.category_id}</td>
-                    </tr>`);
-                });       
+                $('#categoria').empty();
+                $.each(data, function (i, item) {
+                    let rows = "<tr>" +
+                        "<td>" + item.category_id + "</td>" +
+                        "<td>" + item.id + "</td>" +
+                        "<td>" + item.name + "</td>" +
+                        "</tr>";
+                    $('#categoria').append(rows);
+                });
+                console.log(data);
               
             },
             error : function(error) {
