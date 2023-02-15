@@ -14,6 +14,26 @@ let app = {
     },
     initDatatable : function(id) {
         app.table = $(id).DataTable({
+            language: {
+                "decimal": "",
+                "emptyTable": "No hay información",
+                "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+                "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+                "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+                "infoPostFix": "",
+                "thousands": ",",
+                "lengthMenu": "Mostrar _MENU_ Entradas",
+                "loadingRecords": "Cargando...",
+                "processing": "Procesando...",
+                "search": "Buscar:",
+                "zeroRecords": "Sin resultados encontrados",
+                "paginate": {
+                    "first": "Primero",
+                    "last": "Ultimo",
+                    "next": "Siguiente",
+                    "previous": "Anterior"
+                }
+            },
             ajax : {
                 url : app.backend + '/categories/',
                 dataSrc : function(json) {
@@ -39,7 +59,7 @@ let app = {
                     action : function(e, dt, node, config) {
                         var data = dt.rows('.table-active').data()[0];
                         app.setDataToModal(data);
-                        app.load_words(data.id)
+                        app.load_words(data.id);
                     }
                 },
                 {
@@ -127,9 +147,22 @@ let app = {
             method: 'GET',
             dataType : 'json',
             contentType: "application/json; charset=utf-8",
-            success : function(res) {
-                console.log(res);
-                
+            success : function(data) {
+                $.each(data, function(i, item) {
+                    $('#categoria').empty();
+                    $('#categoria').html(`
+                    <tr>
+                        <th>Categoria</th>
+                        <th>#</th>
+                        <th>Palabra</th>
+                    </tr>
+                    <tr>
+                        <td>${item.name}</td>
+                        <td>${item.id}</td>
+                        <td>${item.category_id}</td>
+                    </tr>`);
+                });       
+              
             },
             error : function(error) {
                 $("#msg").text(error.error);
@@ -141,5 +174,6 @@ let app = {
 };
 
 $(document).ready(function(){
-    app.init();
+    app.init();  
 });
+
