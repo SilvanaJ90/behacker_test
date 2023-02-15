@@ -1,5 +1,5 @@
 let app = {
-    backend: 'http://0.0.0.0:5001/api/v1',
+    backend: 'http://127.0.0.1:5001/api/v1',
     table : null,
     init: function() {
         app.initDatatable('#categoria');
