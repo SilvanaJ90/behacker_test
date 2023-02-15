@@ -59,12 +59,10 @@
     height: 45px;
 }
 
-a{
-    text-decoration: none;
-}
+
 
 td, th{
-    border: #845484 solid 1px;
+    border: #845484 solid 0.5px;
 }
 
 .mg-left-right{
