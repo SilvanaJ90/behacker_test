@@ -110,7 +110,7 @@ td, th{
     background: #eee;
 }
 
-.btn-login {
+.btn-all {
     background: linear-gradient(to left, #a80077, #6600ff);
     width: 100%;
     padding: 5px;
@@ -121,7 +121,7 @@ td, th{
     cursor: pointer;
 }
 
-.btn-login:hover {
+.btn-all:hover {
     background-image: linear-gradient(to right, #a80077, #6600ff);
     transition: .5s;
 }
