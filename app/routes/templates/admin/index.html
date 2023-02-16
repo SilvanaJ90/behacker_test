@@ -17,7 +17,7 @@
                     <form id="form_login">
 
                         <div class="mb-3">
-                            <label for="txtUsuario" class="form-label">Usuario</label>
+                            <label for="txtUsuario" class="form-label">Email</label>
                             <input type="email" class="form-control" name="email_i" id="email_i" aria-describedby="helpId" placeholder="Escriba su Email">
                         </div>
 
@@ -31,6 +31,8 @@
                         </div>
 
                     </form>
+                </div>
+                <div class="card-footer"> <a href="{{url_for('app_routes.register')}}">Registrarse</a>
                 </div>
             </div>
         </div>

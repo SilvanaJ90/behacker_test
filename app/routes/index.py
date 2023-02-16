@@ -7,13 +7,17 @@ from flask import abort, jsonify, make_response, request, render_template, redir
 from flasgger.utils import swag_from
 
 @app_routes.route('/registro')
-def registro():
+def register():
     return render_template('registro.html')
 
 @app_routes.route('/')
-def login():
+def index():
     return render_template('index.html')
 
 @app_routes.route('/test')
 def test():
     return render_template('test.html')
+
+@app_routes.route('/ver_categorias')
+def get_categories():
+    return render_template("ver_categorias.html")

@@ -13,10 +13,7 @@ $(document).ready(function() {
             contentType: "application/json; charset=utf-8",
             success: function(response)
             {
-               alert('Acceso Ok');
-               $('#email_i').val('');
-               $('#password_i').val('');
-               document.getElementById('button').disabled = false;
+               
            },
            error:function(error){
             console.log(e.message);
