@@ -14,12 +14,14 @@ $(document).ready(function () {
       data: JSON.stringify(formData),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
-      success: function(res) {
-        console.log(res);
-
+      success: function(response) {
+        if (response) {
+          alert("Se guardó el registro correctamente");
+          location.href="http://127.0.0.1:5000/bhprofile/"
+        } else {
+          alert("datos  incorrectos");
+        }
       }
     })
-
   });
-
 }); 
