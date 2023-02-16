@@ -163,3 +163,9 @@ td, th{
     border-radius: 20px;
     color: #fff;
 }
+
+
+.boton {
+    border: 2px solid green;
+    background-color: orange;
+  }

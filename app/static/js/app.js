@@ -57,7 +57,7 @@ let app = {
                 {
                     text : '<i class="fa-solid fa-align-justify"></i>',
                     action : function(e, dt, node, config) {
-                        var data = dt.rows('.table-active').data()[0];
+                        let data = dt.rows('.table-active').data()[0];
                         app.setDataToModal(data);
                         app.load_words(data.id);
                     }
@@ -66,16 +66,27 @@ let app = {
                     text : '<i class="fa-solid fa-trash-can"></i>',
                     action : function(e, dt, node, config) {
                         let data = dt.rows('.table-active').data()[0];
-                        if (confirm('Esta seguro que desea eliminar la categoría' )) {
-                            app.delete(data.id)
-                        }
+                        swal({
+                            title: "¿Estás seguro de que deseas eliminar la categoría?",
+                            text: "",
+                            icon: "warning",
+                            buttons: true,
+                            dangerMode: true,
+                            position: 'center',
+                          })
+                          .then((willDelete) => {
+                            if (willDelete) {
+                              swal('Eliminado exitosamente', '', 'success')
+                              app.delete(data.id)
+                            }
+                          });
                     }
                 },
 
                 {
                     text : '<i class="fa-solid fa-pencil"></i>',
                     action : function(e, dt, node, config) {
-                        var data = dt.rows('.table-active').data()[0];
+                        let data = dt.rows('.table-active').data()[0];
                         app.setDataToModal(data);
                         $('#categoriaModal').modal();
                     }
@@ -111,12 +122,18 @@ let app = {
             dataType : 'json',
             contentType: "application/json; charset=utf-8",
             success : function(json) {
+                $("#msg").css("color", "#000");
+                $("#msg").css("background-color", "#97fcb0");
+                $("#msg").css("border", "#000 solid 1px");
                 $("#msg").text('Se guardó la categoría correctamente');
                 $("#msg").show();
                 $('#categoriaModal').modal('hide');
                 app.table.ajax.reload();
             },
             error : function(error) {
+                $("#msg").css("color", "#000");
+                $("#msg").css("background-color", "#fc97a4");
+                $("#msg").css("border", "#000 solid 1px");
                 $("#msg").text(error.error);
                 $("#msg").show();
 
@@ -130,11 +147,17 @@ let app = {
             dataType : 'json',
             contentType: "application/json; charset=utf-8",
             success : function(json) {
+                $("#msg").css("color", "#000");
+                $("#msg").css("background-color", "#97fcb0");
+                $("#msg").css("border", "#000 solid 1px");
                 $("#msg").text('Se eliminó  la categoría correctamente');
                 $("#msg").show();
                 app.table.ajax.reload();
             },
             error : function(error) {
+                $("#msg").css("color", "#000");
+                $("#msg").css("background-color", "#fc97a4");
+                $("#msg").css("border", "#000 solid 1px");
                 $("#msg").text(error.error);
                 $("#msg").show();
 
@@ -170,6 +193,6 @@ let app = {
 };
 
 $(document).ready(function(){
-    app.init();  
+    app.init();
 });
 
