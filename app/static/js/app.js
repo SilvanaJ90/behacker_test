@@ -13,6 +13,14 @@ let app = {
                 file_name: $('#file_name').val()
             });
         });
+        $("#save_put").click(function(){
+            app.save({
+                id : $('#id_put').val(),
+                name : $('#name_put').val(),
+                description: $('#description_put').val(),
+                file_name: $('#file_name_put').val()
+            });
+        });
     },
     initDatatable : function(id) {
         app.table = $(id).DataTable({
@@ -106,8 +114,8 @@ let app = {
                     text : '<i class="fa-solid fa-pencil"></i>',
                     action : function(e, dt, node, config) {
                         let data = dt.rows('.table-active').data()[0];
-                        app.setDataToModal(data);
-                        $('#categorieModal').modal();
+                        app.setDataToModalPut(data);
+                        $('#categoriePutModal').modal();
                     }
                 }
             ]
@@ -127,6 +135,12 @@ let app = {
         $('#name').val(data.name);
         $('#description').val(data.description);
         $('#file_name').val(data.file_name);
+    },
+    setDataToModalPut : function(data) {
+        $('#id_put').val(data.id);
+        $('#name_put').val(data.name);
+        $('#description_put').val(data.description);
+        $('#file_name_put').val(data.file_name);
     },
     cleanForm: function(){
         $('#name').val('');
@@ -159,6 +173,34 @@ let app = {
             }
         })
     },
+
+    save_put : function(id) {
+        $.ajax({
+            url: app.backend + '/categories/'+id,
+            data : JSON.stringify(data),
+            method: 'PUT',
+            contentType: "application/json; charset=utf-8",
+            success : function(json) {
+                $("#msg").css("color", "#000");
+                $("#msg").css("background-color", "#97fcb0");
+                $("#msg").css("border", "#000 solid 1px");
+                $("#msg").text('Se edito la categoría correctamente');
+                $("#msg").show();
+                $('#categoriePutModal').modal('hide');
+                app.table.ajax.reload();
+            },
+            error : function(error) {
+                $("#msg").css("color", "#000");
+                $("#msg").css("background-color", "#fc97a4");
+                $("#msg").css("border", "#000 solid 1px");
+                $("#msg").text(error.error);
+                $("#msg").show();
+
+            }
+        });
+
+    },
+
     delete : function(id) {
         $.ajax({
             url: app.backend + '/categories/'+id,
@@ -223,4 +265,3 @@ let app = {
 $(document).ready(function(){
     app.init();
 });
-
