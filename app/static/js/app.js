@@ -193,7 +193,7 @@ let app = {
                 $('#categories > tbody').empty();
     
                 $.each(data, function (i, item) {
-                    $title.textContent = 'Palabra';
+                    $title.textContent = 'Palabras de la categoría';
                     let rows = `<tr>
                         <td>${i + 1} </td>
                         <td>${item.name}</td>
