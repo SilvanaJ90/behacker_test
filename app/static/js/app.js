@@ -1,8 +1,10 @@
+const d = document,
+  $title = d.querySelector("#crud-title");
 let app = {
     backend: 'http://127.0.0.1:5001/api/v1',
     table : null,
     init: function() {
-        app.initDatatable('#categoria');
+        app.initDatatable('#categories');
 
         $("#save").click(function(){
             app.save({
@@ -48,14 +50,27 @@ let app = {
                     }
                 },
                 {data : 'name'},
-                {data : 'file_name'}
+                {
+                    data : 'null',
+                    defaultContent : '<i class="fa-solid fa-file-lines"></i>'
+                }
+                
             ],
+            
+        
             buttons: [
+
+                {
+                    text : '<i class="fa-solid fa-chevron-left"></i>',
+                    action : function(e, dt, node, config) {
+                        location.href="ver_categorias";
+                    }
+                },
                 {
                     text : '<i class="fa-solid fa-plus"></i>',
                     action : function(e, dt, node, config) {
                         app.cleanForm();
-                        $('#categoriaModal').modal();
+                        $('#categorieModal').modal();
                     }
                 },
                 {
@@ -92,13 +107,13 @@ let app = {
                     action : function(e, dt, node, config) {
                         let data = dt.rows('.table-active').data()[0];
                         app.setDataToModal(data);
-                        $('#categoriaModal').modal();
+                        $('#categorieModal').modal();
                     }
                 }
             ]
         });
 
-        $('#categoria tbody').on('click', 'tr', function(){
+        $('#categories tbody').on('click', 'tr', function(){
             if ($(this).hasClass('table-active')) {
                 $(this).removeClass('table-active');
             } else {
@@ -131,7 +146,7 @@ let app = {
                 $("#msg").css("border", "#000 solid 1px");
                 $("#msg").text('Se guardó la categoría correctamente');
                 $("#msg").show();
-                $('#categoriaModal').modal('hide');
+                $('#categorieModal').modal('hide');
                 app.table.ajax.reload();
             },
             error : function(error) {
@@ -175,16 +190,23 @@ let app = {
             dataType : 'json',
             contentType: "application/json; charset=utf-8",
             success : function(data) {
-                $('#categoria').empty();
+                $('#categories > tbody').empty();
+    
                 $.each(data, function (i, item) {
-                    let rows = "<tr>" +
-                        "<td>" + item.category_id + "</td>" +
-                        "<td>" + item.id + "</td>" +
-                        "<td>" + item.name + "</td>" +
-                        "</tr>";
-                    $('#categoria').append(rows);
+                    $title.textContent = 'Palabra';
+                    let rows = `<tr>
+                        <td>${i + 1} </td>
+                        <td>${item.name}</td>
+                        <td>
+                            <span class="add"><i class="fa-sharp fa-solid fa-plus"></i></span>
+                            <span class="edit"><i class="fa fa-pencil"></i></span>
+                            <span class="remove"><i class="fa fa-trash"></i></span>
+                        </td>
+                    </tr>`;
+                    $('#categories > tbody').append(rows);
                 });
                 console.log(data);
+
               
             },
             error : function(error) {
@@ -192,8 +214,10 @@ let app = {
                 $("#msg").show();
 
             }
-        })
-    }
+            
+        });
+    },
+
 };
 
 $(document).ready(function(){
