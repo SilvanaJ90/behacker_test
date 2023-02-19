@@ -1,28 +1,30 @@
 #!/usr/bin/python3
 """ objects that handle all default RestFul API actions for Users """
 from models.user import User
-from models.rol import Rol
 from models import storage
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
 from flasgger.utils import swag_from
+from werkzeug.security import check_password_hash
+from flask_login import login_user
+from flask_jwt_extended import create_access_token
+from flask_jwt_extended import jwt_required, get_jwt_identity
 
-@app_views.route('/roles/<rol_id>/users', methods=['GET'],
+@app_views.route('/user_type/users', methods=['GET'],
                  strict_slashes=False)
 @swag_from('documentation/user/users_by_rol.yml', methods=['GET'])
-def get_roles_user(rol_id):
+def get_roles_user():
     """
     Retrieves the list of all users objects
     of a specific rol, or a specific user
     """
     list_users = []
-    rol = storage.get(Rol, rol_id)
-    if not rol:
+    rol_users = storage.get(User, is_user=True)
+    if not rol_users:
         abort(404)
-    for user in rol.users:
+    for user in rol_users:
         list_users.append(user.to_dict())
-
-    return jsonify(list_users)
+    return jsonify(list_users), 200
 
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
 @swag_from('documentation/user/all_users.yml')
@@ -68,15 +70,15 @@ def delete_user(user_id):
     return make_response(jsonify({}), 200)
 
 
-@app_views.route('/roles/<rol_id>/users', methods=['POST'], strict_slashes=False)
+
+@app_views.route('/users', methods=['POST'], strict_slashes=False)
 @swag_from('documentation/user/post_user.yml', methods=['POST'])
-def post_user(rol_id):
+def post_user():
     """
     Creates a user
     """
-    rol = storage.get(Rol, rol_id)
-    if not rol:
-        abort(404)
+    if not request.get_json():
+        abort(400, description="Not a JSON")
     if 'email' not in request.get_json():
         abort(400, description="Missing email")
     if 'password' not in request.get_json():
@@ -84,10 +86,8 @@ def post_user(rol_id):
 
     data = request.get_json()
     instance = User(**data)
-    instance.rol_id = rol.id
     instance.save()
     return make_response(jsonify(instance.to_dict()), 201)
-
 
 @app_views.route('/users/<user_id>', methods=['PUT'], strict_slashes=False)
 
@@ -112,3 +112,36 @@ def put_user(user_id):
             setattr(user, key, value)
     storage.save()
     return make_response(jsonify(user.to_dict()), 200)
+
+
+@app_views.route('/users/login', methods=['PUT'], strict_slashes=False)
+
+@swag_from('documentation/user/login_user.yml', methods=['PUT'])    
+def login():
+    data = request.get_json()
+    if not data or not data.get('email') or not data.get('password'):
+        return jsonify({'error': 'missing data'}), 400
+
+    email = data['email']
+    password = data['password']
+    user = storage.get(User, "email", email)
+    if not user or not user.verify_password(password):
+        return jsonify({'error': 'invalid credentials'}), 401
+
+    access_token = create_access_token(identity=user.id)
+    if user.is_user:
+        return jsonify({'message': 'user authenticated', 'is_user': True, 'access_token': access_token}), 200
+    else:
+        return jsonify({'message': 'user authenticated', 'is_user': False, 'access_token': access_token}), 200
+
+
+@app_views.route('/protected', methods=['GET'])
+@swag_from('documentation/user/protected.yml', methods=['GET'])    
+def protected():
+    current_user_id = get_jwt_identity()
+    user = storage.get(User, "id", current_user_id)
+    if user.is_user:
+        return jsonify({'message': 'Welcome to the user area!'}), 200
+    else:
+        return jsonify({'message': 'Welcome to the admin'})
+

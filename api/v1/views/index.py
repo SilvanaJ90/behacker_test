@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 """ Index """
-from models.rol import Rol
 from models.word import Word
 from models.test import Test
 from models.category import Category
@@ -19,8 +18,8 @@ def status():
 @app_views.route('/stats', methods=['GET'], strict_slashes=False)
 def number_objects():
     """ Retrieves the number of each objects by type """
-    classes = [Word, Category, Rol, Test, User]
-    names = ["words", "categories", "roles", "test", "users"]
+    classes = [Word, Category, Test, User]
+    names = ["words", "categories", "test", "users"]
 
     num_objs = {}
     for i in range(len(classes)):

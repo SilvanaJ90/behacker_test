@@ -19,7 +19,15 @@
 -- Current Database: `bh_profile_db`
 --
 
-CREATE DATABASE /*!32312 IF NOT EXISTS*/ `bh_profile_db` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+DROP DATABASE IF EXISTS bh_profile_db;
+
+
+CREATE DATABASE IF NOT EXISTS bh_profile_db;
+CREATE USER IF NOT EXISTS 'bh_profile_dev'@'localhost' IDENTIFIED BY 'bh_profile_pwd';
+GRANT ALL ON `bh_profile_db`.* TO 'bh_profile_dev'@'localhost';
+GRANT SELECT ON `performance_schema`.* TO 'bh_profile_dev'@'localhost';
+FLUSH PRIVILEGES;
+
 
 USE `bh_profile_db`;
 
@@ -45,32 +53,8 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES ('16222f5a-2979-4fe5-8532-9d410095a093','Influencer','',''),('46e92702-33de-4635-8816-c5ea3131dbc9','Estabilidad','',''),('5ccf95c0-3904-44bc-b0a5-5ec3959664dc','hjklñ','',''),('bdef23f4-6753-47cf-b28a-6a96b3956439','Cumplimiento','',''),('d4a1bc01-a89f-4b26-b254-260bbf3424e2','Dominancia','','');
+INSERT INTO `categories` VALUES ('16222f5a-2979-4fe5-8532-9d410095a093','Influencer','',''),('46e92702-33de-4635-8816-c5ea3131dbc9','Estabilidad','',''),('bdef23f4-6753-47cf-b28a-6a96b3956439','Cumplimiento','',''),('d4a1bc01-a89f-4b26-b254-260bbf3424e2','Dominancia','','');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `roles`
---
-
-DROP TABLE IF EXISTS `roles`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `roles` (
-  `id` varchar(60) NOT NULL,
-  `name` varchar(128) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `roles`
---
-
-LOCK TABLES `roles` WRITE;
-/*!40000 ALTER TABLE `roles` DISABLE KEYS */;
-INSERT INTO `roles` VALUES ('61b93d6a-216d-4956-8398-efda2c5f9455','admin'),('dc32135c-1f1e-4dac-8771-1b91289dd03e','user');
-/*!40000 ALTER TABLE `roles` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -137,14 +121,11 @@ DROP TABLE IF EXISTS `users`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `users` (
   `id` varchar(60) NOT NULL,
-  `rol_id` varchar(60) NOT NULL,
   `email` varchar(128) NOT NULL,
-  `password` varchar(128) NOT NULL,
   `first_name` varchar(128) DEFAULT NULL,
   `last_name` varchar(128) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `rol_id` (`rol_id`),
-  CONSTRAINT `users_ibfk_1` FOREIGN KEY (`rol_id`) REFERENCES `roles` (`id`)
+  `is_user` tinyint(1) DEFAULT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -154,7 +135,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('0822d91b-3078-4c18-9674-9bc93277b807','dc32135c-1f1e-4dac-8771-1b91289dd03e','silvanajaramillo90@gmail.com','81dc9bdb52d04dc20036dbd8313ed055','Silvana','Jaramillo'),('0d48734c-a73c-4cca-b827-08faa021641e','dc32135c-1f1e-4dac-8771-1b91289dd03e','prueb45a@hbtn.io','d9729feb74992cc3482b350163a1a010','prueb45a25','prueb45n'),('fedb499b-3113-47da-9244-4fc5b3d080d5','dc32135c-1f1e-4dac-8771-1b91289dd03e','prueb45a@hbtn.io','d9729feb74992cc3482b350163a1a010','prueb45a23','prueb45n');
+INSERT INTO `users` VALUES ('4184c2a4-095d-4bc1-b0b6-cc5a947b8999','prueba@hbtn.io','prueba','Perez',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -194,4 +175,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-17  9:08:20
+-- Dump completed on 2023-02-18 22:32:17

@@ -4,7 +4,6 @@ Contains the class DBStorage
 """
 
 import models
-from models.rol import Rol
 from models.base_model import BaseModel, Base
 from models.word import Word
 from models.test import Test
@@ -15,7 +14,7 @@ import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-classes = {"Rol": Rol, "Word": Word,
+classes = {"Word": Word,
            "Test": Test, "Category": Category, "User": User}
 
 

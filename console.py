@@ -4,7 +4,6 @@
 import cmd
 from datetime import datetime
 import models
-from models.rol import Rol
 from models.base_model import BaseModel
 from models.word import Word
 from models.test import Test
@@ -12,7 +11,7 @@ from models.category import Category
 from models.user import User
 import shlex  # for splitting the line along spaces except in double quotes
 
-classes = {"Rol": Rol, "Word": Word,
+classes = {"Word": Word,
            "Test": Test, "Category": Category, "User": User}
 
 class HBNBCommand(cmd.Cmd):

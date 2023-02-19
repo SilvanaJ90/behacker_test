@@ -5,7 +5,6 @@ Contains the FileStorage class
 
 import json
 import models
-from models.rol import Rol
 from models.base_model import BaseModel
 from models.word import Word
 from models.test import Test
@@ -13,7 +12,7 @@ from models.category import Category
 from models.user import User
 from hashlib import md5
 
-classes = {"Rol": Rol, "BaseModel": BaseModel, "Word": Word,
+classes = {"BaseModel": BaseModel, "Word": Word,
            "Test": Test, "Category": Category, "User": User}
 
 
