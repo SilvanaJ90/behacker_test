@@ -6,9 +6,9 @@ from app.routes import app_routes
 from flask import abort, jsonify, make_response, request, render_template, redirect, url_for
 from flasgger.utils import swag_from
 
-@app_routes.route('/registro')
+@app_routes.route('/register')
 def register():
-    return render_template('registro.html')
+    return render_template('register.html')
 
 @app_routes.route('/')
 def index():
