@@ -23,7 +23,7 @@ $(document).ready(function() {
             if (response.is_user === true) {
               window.location.href = "/bhprofile/test";
             } else if (response.is_user === false) {
-              window.location.href = "/bhprofile/ver_categorias";
+              window.location.href = "/bhprofile/admin";
             } else {
               alert('Rol desconocido.');
             }

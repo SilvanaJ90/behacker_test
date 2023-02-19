@@ -18,6 +18,6 @@ def index():
 def test():
     return render_template('test.html')
 
-@app_routes.route('/ver_categorias')
+@app_routes.route('/admin')
 def get_categories():
-    return render_template("ver_categorias.html")
+    return render_template("admin.html")
