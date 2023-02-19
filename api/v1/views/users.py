@@ -51,7 +51,6 @@ def get_user(user_id):
     return jsonify(user.to_dict())
 
 
-
 @app_views.route('/users/<user_id>', methods=['DELETE'],
                  strict_slashes=False)
 @swag_from('documentation/user/delete_user.yml', methods=['DELETE'])
@@ -115,9 +114,8 @@ def put_user(user_id):
     return make_response(jsonify(user.to_dict()), 200)
 
 
-@app_views.route('/users/login', methods=['PUT'], strict_slashes=False)
-
-@swag_from('documentation/user/login_user.yml', methods=['PUT'])    
+@app_views.route('/users/login', methods=['POST'], strict_slashes=False)
+@swag_from('documentation/user/login_user.yml', methods=['POST'])    
 def login():
     data = request.get_json()
     if not data or not data.get('email') or not data.get('password'):
@@ -125,7 +123,7 @@ def login():
 
     email = data['email']
     password = data['password']
-    user = storage.get(User, "email", email)
+    user = storage.get(User, email)
     if not user or not user.verify_password(password):
         return jsonify({'error': 'invalid credentials'}), 401
 

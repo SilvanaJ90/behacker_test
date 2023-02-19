@@ -12,6 +12,7 @@
         <link rel='stylesheet' type='text/css' href='https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css'>
         <link rel='stylesheet' type='text/css' href='https://cdn.datatables.net/buttons/1.6.4/css/buttons.dataTables.min.css'>
         <title>Be Hacker Pro</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     </head>
     <body>
         <header>
@@ -23,32 +24,43 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                            <li class="nav-item dropdown hv-line">
-                                <a class="nav-link active text-white" aria-current="page" href="{{url_for('app_routes.index')}}">Inicio</a>
-                            </li>
-                            <li class="nav-item dropdown hv-line">
-                                <a class="nav-link text-white" href="{{url_for('app_routes.get_categories')}}" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Categorias
-                                </a>
-                                
-                            </li>
-                            <li class="nav-item dropdown hv-line">
-                                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Usuarios
-                                </a>            
-                            </li>
-                            <li class="nav-item dropdown hv-line">
-                                <a class="nav-link text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Informes
-                                </a>
-                            </li>
-                            
                         </ul>
-                        <button type="button" class="btn bg-purple-light" style="border: #845484 solid 1px;"><b><a class="text-white" href="#" style="text-decoration: none">Cerrar sesión</a></b></button>
                     </div>
+                    <button type="submit" class="btn bg-purple-light" style="border: #845484 solid 1px;"><b><a class="text-white" href="#" style="text-decoration: none">Cerrar sesión</a></b></button>
                 </div>
             </nav>
         </header>
         <body>
-            <br><br><br>
+        <br><br><br><br>
 
+<div class="container">
+    <div class="row">
+
+        <div class="col-md-2"></div>
+
+        <div class="col-md-9 text-center">
+                    <div class="card-body">
+                        <form action="" class="formulario">
+                            <h2 class="title-test" style="font-size: 1.5em;">Seleccione las palabras que se acomoden a su preferencia</h2><br>
+                            <div id="checkbox-container">
+                              <!-- Here the checkboxes will be added dynamically -->
+                            </div>
+                            <div class="text-center">
+                              <button type="submit" class="btn text-white btn-all"><b>Continuar</b></button>
+                            </div>
+                          </form>
+                          
+                          
+                    </div>
+            
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://kit.fontawesome.com/e9fdf5f262.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../static/js/test.js?{{ cache_id }}"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+</html>
