@@ -1,33 +1,41 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const loginForm = document.querySelector("#login-form");
+$(document).ready(function() {
+  $('#login-form').submit(function(event) {
+    event.preventDefault(); // Prevent default form behavior
 
-  loginForm.addEventListener("submit", function (event) {
-    event.preventDefault();
+    const email = $('#email_i').val();
+    const password = $('#password_i').val();
 
-    const email = document.querySelector("#email_i").value;
-    const password = document.querySelector("#password_i").value;
-
-    fetch("http://127.0.0.1:5001/api/v1/users/login", {
-      method: "PUT",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email: email, password: password }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw Error(response.statusText);
-        }
-        return response.json();
-      })
-      .then((data) => {
-        if (data.is_user) {
-          window.location.href = "/bhprofile/test";
-        } else {
-          window.location.href = "/bhprofile/ver_categorias";
-        }
-      })
-      .catch((error) => {
-        console.error(error);
-        alert("Invalid credentials. Please try again.");
-      });
+    // Check if the user exists by making a GET request to the API
+    $.ajax({
+      url: `http://127.0.0.1:5001/api/v1/users/${email}`,
+      method: 'GET',
+      dataType: 'json',
+      success: function(response) {
+        // If the user exists, authenticate it by making a POST request to the API
+        $.ajax({
+          url: 'http://127.0.0.1:5001/api/v1/users/login',
+          method: 'POST',
+          dataType: 'json',
+          contentType: "application/json; charset=utf-8",
+          data: { email: email, password: password },
+          success: function(response) {
+            // Check user role and redirect
+            if (response.is_user === true) {
+              window.location.href = "/bhprofile/test";
+            } else if (response.is_user === false) {
+              window.location.href = "/bhprofile/ver_categorias";
+            } else {
+              alert('Rol desconocido.');
+            }
+          },
+          error: function(jqXHR, textStatus, errorThrown) {
+            alert('Credenciales inválidas. Inténtelo de nuevo.');
+          }
+        });
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+        alert('El usuario no existe. Por favor regístrese.');
+      }
+    });
   });
 });

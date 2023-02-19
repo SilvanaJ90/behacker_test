@@ -51,6 +51,7 @@ def get_user(user_id):
     return jsonify(user.to_dict())
 
 
+
 @app_views.route('/users/<user_id>', methods=['DELETE'],
                  strict_slashes=False)
 @swag_from('documentation/user/delete_user.yml', methods=['DELETE'])
