@@ -11,7 +11,7 @@ $(document).ready(function () {
   
   
       $.ajax({
-        url: "http://127.0.0.1:5001/api/v1/users",
+        url: "http://127.0.0.1:5001/api/v1/users/register",
         type: "POST",
         data: JSON.stringify(formData),
         contentType: "application/json; charset=utf-8",

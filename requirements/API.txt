@@ -302,7 +302,7 @@ silvanaj@SJARAMILLO:$curl -X PUT http://127.0.0.1:5001/api/v1/users/94f5c269-b9f
 CREAR
 crear un user admin 
 
-ilvanaj@SJARAMILLO:$curl -X POST http://127.0.0.1:5001/api/v1/users -H "Content-Type: application/json" -d '{"email": "admin@bhpro.io", "password": "admin1", "first_name": "prueba", "last_name": "Perez", "is_user": false}' -vvv
+ilvanaj@SJARAMILLO:$curl -X POST http://127.0.0.1:5001/api/v1/users/register -H "Content-Type: application/json" -d '{"email": "admin@bhpro.io", "password": "admin1", "first_name": "prueba", "last_name": "Perez", "is_user": false}' -vvv
 Note: Unnecessary use of -X or --request, POST is already inferred.
 *   Trying 127.0.0.1:5001...
 * Connected to 127.0.0.1 (127.0.0.1) port 5001 (#0)

@@ -13,6 +13,7 @@ from os import getenv
 import sqlalchemy
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
+from werkzeug.security import check_password_hash
 
 classes = {"Word": Word,
            "Test": Test, "Category": Category, "User": User}
@@ -87,6 +88,23 @@ class DBStorage:
                 return value
 
         return None
+        
+    def get_user_by_email(self, email, password):
+        """
+        Returns the User object based on email and password, or None if not found
+        """
+        all_users = models.storage.all(User)
+        for user in all_users.values():
+            if user.email == email and user.verify_password(password):
+                return user
+        return None
+    
+    def verify_password(self, password):
+        """ Verify if the password matches the one saved in the user instance """
+        return check_password_hash(self.password, password)
+
+
+
 
     def count(self, cls=None):
         """
@@ -102,3 +120,4 @@ class DBStorage:
             count = len(models.storage.all(cls).values())
 
         return count
+

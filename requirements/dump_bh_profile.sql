@@ -30,9 +30,6 @@ FLUSH PRIVILEGES;
 
 
 USE `bh_profile_db`;
-
---
--- Table structure for table `categories`
 --
 
 DROP TABLE IF EXISTS `categories`;
@@ -53,7 +50,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES ('16222f5a-2979-4fe5-8532-9d410095a093','Influencer','',''),('46e92702-33de-4635-8816-c5ea3131dbc9','Estabilidad','',''),('bdef23f4-6753-47cf-b28a-6a96b3956439','Cumplimiento','',''),('d4a1bc01-a89f-4b26-b254-260bbf3424e2','Dominancia','','');
+INSERT INTO `categories` VALUES ('16222f5a-2979-4fe5-8532-9d410095a093','Influencer','',''),('46e92702-33de-4635-8816-c5ea3131dbc9','Estabilidad','',''),('bdef23f4-6753-47cf-b28a-6a96b3956439','Cumplimiento','',''),('d4a1bc01-a89f-4b26-b254-260bbf3424e2','Dominancia','',''),('f3d37c70-722f-484a-a2f1-0973084027d7','Compliance',NULL,NULL);
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -122,6 +119,7 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` varchar(60) NOT NULL,
   `email` varchar(128) NOT NULL,
+  `password_hash` varchar(128) NOT NULL,
   `first_name` varchar(128) DEFAULT NULL,
   `last_name` varchar(128) DEFAULT NULL,
   `is_user` tinyint(1) DEFAULT NULL,
@@ -135,7 +133,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('4184c2a4-095d-4bc1-b0b6-cc5a947b8999','prueba@hbtn.io','prueba','Perez',1);
+INSERT INTO `users` VALUES ('0f2ad54a-fdc8-480a-adbe-5f15354933b7','admin@bhpro.io','pbkdf2:sha256:260000$NFGw8KbDkNKkwO3G$fede76efe2678fa4041fbebf2932f913f210817eb4fc62d8ce701846bae050a6',NULL,NULL,0),('e0415d5b-2aa2-405e-acc6-6ae792f7e614','user_test@bhpro.io','pbkdf2:sha256:260000$1dM1Kfap5YmznpcL$bed466323238db2ee1aa152e9b9bdc3e31932e5995be623adb391588c5c9e2bf',NULL,NULL,1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -175,4 +173,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-18 22:32:17
+-- Dump completed on 2023-02-20  8:27:15
