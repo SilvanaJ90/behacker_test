@@ -5,12 +5,8 @@ from models import storage
 from api.v1.views import app_views
 from flask import abort, jsonify, make_response, request
 from flasgger.utils import swag_from
-from werkzeug.security import check_password_hash
-from flask_login import login_user
-from flask_jwt_extended import create_access_token
-from flask_jwt_extended import jwt_required, get_jwt_identity
 from flask_cors import CORS, cross_origin
-
+from flask_jwt_extended import (create_access_token, get_jwt_identity, unset_jwt_cookies)
 
 @app_views.route('/users', methods=['GET'], strict_slashes=False)
 @swag_from('documentation/user/all_users.yml')
@@ -132,3 +128,10 @@ def protected():
     else:
         return jsonify({'message': 'Welcome to the admin'})
 
+
+@app_views.route('/logout', methods=['POST'])
+@swag_from('documentation/user/logout.yml', methods=['POST'])   
+def logout():
+    resp = jsonify({'logout': True})
+    unset_jwt_cookies(resp)
+    return make_response(resp, 200)
