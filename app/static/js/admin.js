@@ -71,7 +71,7 @@ let app = {
                 {
                     text : '<i class="fa-solid fa-chevron-left"></i>',
                     action : function(e, dt, node, config) {
-                        location.href="ver_categorias";
+                        location.href="admin";
                     }
                 },
                 {
