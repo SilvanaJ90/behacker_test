@@ -168,6 +168,7 @@ let app = {
                 $("#msg").css("background-color", "#fc97a4");
                 $("#msg").css("border", "#000 solid 1px");
                 $("#msg").text(error.error);
+                $("#msg").text('(ERROR) Excede el numero de caracteres permitidos');
                 $("#msg").show();
 
             }
