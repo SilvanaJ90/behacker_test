@@ -2,6 +2,7 @@
     font-family: 'Roboto', sans-serif;
 }
 
+
 .dropdown-menu{
     background-color: #aaa;
 }
@@ -45,11 +46,6 @@
     width: 100%;
 }
 
-.bt-right {
-    margin-left: auto;
-    order: 2;
-}
-
 .crear {
     padding: 2px 20px;
     border: none;
@@ -58,8 +54,6 @@
     border-radius:15px;
     height: 45px;
 }
-
-
 
 td, th{
     border: #845484 solid 0.5px;
@@ -163,9 +157,3 @@ td, th{
     border-radius: 20px;
     color: #fff;
 }
-
-
-.boton {
-    border: 2px solid green;
-    background-color: orange;
-  }
