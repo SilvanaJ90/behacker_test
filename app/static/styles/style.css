@@ -36,6 +36,7 @@ body {
 
 .border-table{
     border: #845484 solid 2px;
+    box-shadow: 0 0 10px 8px #11111199;
 }
 
 .size-container{
