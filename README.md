@@ -1,13 +1,15 @@
 # Profile
 
-Requisitos generales del proyecto
+# BeHacker Test
+
+## Requisitos generales del proyecto
 
 La empresa BehackerPro es un ecosistema digital que permite a las personas y a las organizaciones adquirir conocimientos, habilidades, estrategias y desarrollar capacidades para enfrentar los retos de ciberseguridad que se tienen en la sociedad actual y futura.
 
 La empresa desea llevar a cabo el desarrollo de una herramienta que permita perfilar los intereses profesionales, y formar roles y perfiles laborales bien definidos. 
 
 
-Funcionalidades generales
+## Funcionalidades generales
 
 La plataforma permitirá a los usuarios generales crear un perfil que le permita ingresar a la plataforma por medio de usuario y contraseña, este perfíl le brindará la posibilidad de acceder a una serie de vistas en las cuales el sistema le permitirá al usuario seleccionar varias frases o palabras.
 
@@ -26,20 +28,20 @@ Durante el desarrollo de la herramienta se debe tener en cuenta:
 ●	Al finalizar el ejercicio, el usuario general recibirá en su correo electrónico un documento pdf en el cual se da a conocer con mayor detalle las características de la categoría con la cual tuvo mayor afinidad. 
 ●	Un usuario podrá realizar varias veces el test [SE DEBE CONSERVAR EL HISTÓRICO POR USUARIO CUANDO REALICE VARIAS VECES EL TEST]
 
-Roles de usuario
+## Roles de usuario
 
 ●	Usuario general: encargado de dar respuesta a las preguntas
 ●	Administrador, encargado de crear las categorías, palabras, gestionar usuario, gestionar la configuración del sistema y generar informes. 
 
-Módulos del sistema
+# Módulos del sistema
 
-Entorno cliente: 
+## Entorno cliente: 
 
 Módulo de acceso al sistema: por medio de este módulo el usuario podrá registrarse, ingresar al sistema, recordar su contraseña en caso de haberlo olvidado.  [VALIDAR SI REALMENTE SE REQUIERE EL REGISTRO DEL USUARIO]
 
 Vistas de perfilamiento: Al ingresar al sistema el usuario podrá visualizar una serie de vistas, las cuales simularán un cuestionario, en cada una de estas vistas se podrá visualizar frases y palabras las cuales deberán ser seleccionadas por el usuario. Las frases o palabras serán tomadas de las diferentes categorías de forma aleatoria. 
 
-Entorno administrador: 
+## Entorno administrador: 
 
 Categorías: el usuario administrador podrá gestionar las diferentes categorías del sistema.
 
