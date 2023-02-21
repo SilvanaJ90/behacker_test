@@ -1,5 +1,3 @@
-# Profile
-
 # BeHacker Test
 
 ## Requisitos generales del proyecto
@@ -19,19 +17,19 @@ El sistema también contará con un entorno administrativo por medio del cual un
 
 Durante el desarrollo de la herramienta se debe tener en cuenta: 
 
-●	El usuario ingresará al sistema por medio de usuario y contraseña, este deberá crear su respectivo perfil
-●	El administrador tendrá la posibilidad de asignar tantas categorías como desee
-●	A cada categoría se asociarán una serie de frases o palabras que serán posteriormente utilizadas como opciones de selección en cada vista. 
-●	El sistema ofrecerá al usuario un número máximo de vistas definido por el usuario administrador. 
-●	Cada vista mostrará un número máximo de palabras definidas por el usuario administrador
-●	A medida que el usuario general va seleccionando palabras de la lista, el sistema irá asignando un mayor peso a las palabras relacionadas a la categoría en la cual se vaya evidenciando una mayor tendencia por parte del usuario.
-●	Al finalizar el ejercicio, el usuario general recibirá en su correo electrónico un documento pdf en el cual se da a conocer con mayor detalle las características de la categoría con la cual tuvo mayor afinidad. 
-●	Un usuario podrá realizar varias veces el test [SE DEBE CONSERVAR EL HISTÓRICO POR USUARIO CUANDO REALICE VARIAS VECES EL TEST]
+-	El usuario ingresará al sistema por medio de usuario y contraseña, este deberá crear su respectivo perfil
+-	El administrador tendrá la posibilidad de asignar tantas categorías como desee
+-	A cada categoría se asociarán una serie de frases o palabras que serán posteriormente utilizadas como opciones de selección en cada vista. 
+-	El sistema ofrecerá al usuario un número máximo de vistas definido por el usuario administrador. 
+-	Cada vista mostrará un número máximo de palabras definidas por el usuario administrador
+-	A medida que el usuario general va seleccionando palabras de la lista, el sistema irá asignando un mayor peso a las palabras relacionadas a la categoría en la cual se vaya evidenciando una mayor tendencia por parte del usuario.
+-	Al finalizar el ejercicio, el usuario general recibirá en su correo electrónico un documento pdf en el cual se da a conocer con mayor detalle las características de la categoría con la cual tuvo mayor afinidad. 
+-	Un usuario podrá realizar varias veces el test [SE DEBE CONSERVAR EL HISTÓRICO POR USUARIO CUANDO REALICE VARIAS VECES EL TEST]
 
 ## Roles de usuario
 
-●	Usuario general: encargado de dar respuesta a las preguntas
-●	Administrador, encargado de crear las categorías, palabras, gestionar usuario, gestionar la configuración del sistema y generar informes. 
+-	Usuario general: encargado de dar respuesta a las preguntas
+-	Administrador, encargado de crear las categorías, palabras, gestionar usuario, gestionar la configuración del sistema y generar informes. 
 
 # Módulos del sistema
 
