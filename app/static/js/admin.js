@@ -240,10 +240,10 @@ let app = {
                     let rows = `<tr>
                         <td>${i + 1} </td>
                         <td>${item.name}</td>
-                        <td>
-                            <span class="add"><i class="fa-sharp fa-solid fa-plus"></i></span>
-                            <span class="edit"><i class="fa fa-pencil"></i></span>
-                            <span class="remove"><i class="fa fa-trash"></i></span>
+                        <td class="text-center">
+                            <span class="add"><i class="fa-sharp fa-solid fa-plus mg-left-right"></i></span>
+                            <span class="edit"><i class="fa fa-pencil mg-left-right"></i></span>
+                            <span class="remove"><i class="fa fa-trash mg-left-right"></i></span>
                         </td>
                     </tr>`;
                     $('#categories > tbody').append(rows);
