@@ -59,12 +59,16 @@ def register_user():
     data = request.get_json()
     if not data or not data.get('email') or not data.get('password'):
         return jsonify({'error': 'missing data'}), 400
-
+    
     email = data['email']
     password = data['password']
+    first_name = data.get('first_name')
+    last_name = data.get('last_name')
+    is_user = data.get('is_user', True)
 
     # Crear nuevo usuario
     user = User(email=email)
+    user = User(email=email, first_name=first_name, last_name=last_name, is_user=is_user)
     user.set_password(password)
     user.save()
 
