@@ -2,6 +2,9 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    background: radial-gradient(circle at 80% 20%, #fafafa 0%, #e1eaee 90%);
+}
 
 .dropdown-menu{
     background-color: #aaa;
