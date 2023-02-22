@@ -63,8 +63,14 @@ fetch('http://127.0.0.1:5001/api/v1/categories')
     checkboxContainer.style.display = 'none';
 
     // Mostrar una alerta con el mensaje que quieras
-    alert('¡Gracias por completar el test!, tienes un perfil de personalidad dominante, el resultado del test le será enviado al correo registrado.');
-    window.location.href ="/bhprofile/";
+    // alert('¡Gracias por completar el test!, tienes un perfil de personalidad dominante, el resultado del test le será enviado al correo registrado.');
+    swal({
+      title: "DOMINANTE",
+      text: "¡Gracias por completar el test!, tienes un perfil de personalidad dominante, el resultado del test le será enviado al correo registrado.'",
+      icon: "success",
+      button: "SALIR",
+      }).then(function() {
+      window.location.href ="/bhprofile/";
+      });
+    });
   });
-});
-

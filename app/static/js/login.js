@@ -36,19 +36,35 @@ $(document).ready(function() {
               } else if (response.is_user === false) {
                 window.location.href = "/bhprofile/admin";
               } else {
-                alert('Rol desconocido.');
+                swal({
+                  title: 'Rol desconocido',
+                  icon: 'warning',
+                  confirmButtonText: 'OK'
+                });
               }
             },
             error: function(jqXHR, textStatus, errorThrown) {
-              alert('Credenciales inválidas. Inténtelo de nuevo.');
+              swal({
+                title: 'Credenciales inválidas. Inténtelo de nuevo.',
+                icon: 'warning',
+                confirmButtonText: 'OK'
+              });
             }
           });
         } else {
-          alert('El usuario no existe. Por favor regístrese.');
+          swal({
+            title: 'El usuario no existe. Por favor regístrese.',
+            icon: 'warning',
+            confirmButtonText: 'OK'
+          });
         }
       },
       error: function(jqXHR, textStatus, errorThrown) {
-        alert('Ocurrió un error al buscar el usuario.');
+        swal({
+          title: 'Ocurrió un error al buscar el usuario.',
+          icon: 'error',
+          confirmButtonText: 'OK'
+        });
       }
     });
   });
