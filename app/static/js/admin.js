@@ -57,11 +57,7 @@ let app = {
                         return meta.row + 1;
                     }
                 },
-                {data : 'name'},
-                {
-                    data : 'null',
-                    defaultContent : '<i class="fa-solid fa-file-lines"></i>'
-                }
+                {data : 'name'}
                 
             ],
             
@@ -74,19 +70,29 @@ let app = {
                         location.href="admin";
                     }
                 },
-                {
-                    text : '<i class="fa-solid fa-plus"></i>',
-                    action : function(e, dt, node, config) {
-                        app.cleanForm();
-                        $('#categorieModal').modal();
-                    }
-                },
+
+
                 {
                     text : '<i class="fa-solid fa-align-justify"></i>',
                     action : function(e, dt, node, config) {
                         let data = dt.rows('.table-active').data()[0];
                         app.setDataToModal(data);
                         app.load_words(data.id);
+                    }
+                },
+                {
+                    text : '<i class="fa-solid fa-file-lines"></i>',
+                    action : function(e, dt, node, config) {
+                        let data = dt.rows('.table-active').data()[0];
+                        app.setDataToModalPut(data);
+                        $('#categoriePutModal').modal();
+                    }
+                },
+                {
+                    text : '<i class="fa-solid fa-plus"></i>',
+                    action : function(e, dt, node, config) {
+                        app.cleanForm();
+                        $('#categorieModal').modal();
                     }
                 },
                 {
@@ -236,15 +242,10 @@ let app = {
                 $('#categories > tbody').empty();
     
                 $.each(data, function (i, item) {
-                    $title.textContent = 'Palabras de la categoría';
+                    $title.textContent = 'Categoria Influyente';
                     let rows = `<tr>
                         <td>${i + 1} </td>
                         <td>${item.name}</td>
-                        <td class="text-center">
-                            <span class="add"><i class="fa-sharp fa-solid fa-plus mg-left-right"></i></span>
-                            <span class="edit"><i class="fa fa-pencil mg-left-right"></i></span>
-                            <span class="remove"><i class="fa fa-trash mg-left-right"></i></span>
-                        </td>
                     </tr>`;
                     $('#categories > tbody').append(rows);
                 });

@@ -15,10 +15,6 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
---
--- Current Database: `bh_profile_db`
---
-
 DROP DATABASE IF EXISTS bh_profile_db;
 
 
@@ -30,6 +26,9 @@ FLUSH PRIVILEGES;
 
 
 USE `bh_profile_db`;
+
+--
+-- Table structure for table `categories`
 --
 
 DROP TABLE IF EXISTS `categories`;
@@ -50,7 +49,7 @@ CREATE TABLE `categories` (
 
 LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
-INSERT INTO `categories` VALUES ('16222f5a-2979-4fe5-8532-9d410095a093','Influencer','',''),('46e92702-33de-4635-8816-c5ea3131dbc9','Estabilidad','',''),('bdef23f4-6753-47cf-b28a-6a96b3956439','Cumplimiento','',''),('d4a1bc01-a89f-4b26-b254-260bbf3424e2','Dominancia','',''),('f3d37c70-722f-484a-a2f1-0973084027d7','Compliance',NULL,NULL);
+INSERT INTO `categories` VALUES ('16222f5a-2979-4fe5-8532-9d410095a093','Influyente','',''),('46e92702-33de-4635-8816-c5ea3131dbc9','Estable','',''),('bdef23f4-6753-47cf-b28a-6a96b3956439','Cumplimiento','',''),('d4a1bc01-a89f-4b26-b254-260bbf3424e2','Dominante','','');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -133,7 +132,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('0f2ad54a-fdc8-480a-adbe-5f15354933b7','admin@bhpro.io','pbkdf2:sha256:260000$NFGw8KbDkNKkwO3G$fede76efe2678fa4041fbebf2932f913f210817eb4fc62d8ce701846bae050a6',NULL,NULL,0),('e0415d5b-2aa2-405e-acc6-6ae792f7e614','user_test@bhpro.io','pbkdf2:sha256:260000$1dM1Kfap5YmznpcL$bed466323238db2ee1aa152e9b9bdc3e31932e5995be623adb391588c5c9e2bf',NULL,NULL,1);
+INSERT INTO `users` VALUES ('eb0b8373-6801-4185-844d-7ee7e601dd82','admin@bhpro.io','pbkdf2:sha256:260000$hcH8tcfkqByovh8k$bfc0d48edd7b7567df4c669e664053ed1610a0c9d249153e63cdbd57254f0e8c','admin','test',0);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -160,7 +159,7 @@ CREATE TABLE `words` (
 
 LOCK TABLES `words` WRITE;
 /*!40000 ALTER TABLE `words` DISABLE KEYS */;
-INSERT INTO `words` VALUES ('02b074c7-a556-4702-9688-02babcdac88a','d4a1bc01-a89f-4b26-b254-260bbf3424e2','independiente'),('09f5601c-c90b-4945-a52f-db8e7d5e46bd','16222f5a-2979-4fe5-8532-9d410095a093','sociable'),('1b38613f-a240-4f54-8f16-7b0e00451455','46e92702-33de-4635-8816-c5ea3131dbc9','cooperativo'),('23cbde4c-315a-4b07-ad54-55e11a353713','16222f5a-2979-4fe5-8532-9d410095a093','entusiasta'),('26d35aeb-b3af-4301-aa8d-ec8ddfbfd013','bdef23f4-6753-47cf-b28a-6a96b3956439','pruedente'),('29083d24-d471-445b-83a9-166b474e6f65','46e92702-33de-4635-8816-c5ea3131dbc9','fiable'),('2a0c7f78-1179-449a-8ff6-5b5ec6fbbdd4','16222f5a-2979-4fe5-8532-9d410095a093','comunicativo'),('458befeb-1e75-4248-9558-8a3e0970cecd','d4a1bc01-a89f-4b26-b254-260bbf3424e2','energetico'),('4beb2003-bbfc-453b-befb-ab7369c116c3','16222f5a-2979-4fe5-8532-9d410095a093','efusivo'),('4c7941cf-8fbd-4e3c-92a7-33961ed5c780','d4a1bc01-a89f-4b26-b254-260bbf3424e2','rapido'),('60fffd13-4cba-4189-a650-fcea7aff8580','d4a1bc01-a89f-4b26-b254-260bbf3424e2','decidido'),('622152bc-2d95-4d2e-8119-f413dec4ee68','46e92702-33de-4635-8816-c5ea3131dbc9','atento'),('71170594-2642-448f-bd72-1110f3c077d6','16222f5a-2979-4fe5-8532-9d410095a093','demostrativo'),('76da84ef-e293-443e-a60c-e670c6f1529b','bdef23f4-6753-47cf-b28a-6a96b3956439','reflexivo'),('8a39628a-95af-4ae6-ae6d-e27c976d6895','bdef23f4-6753-47cf-b28a-6a96b3956439','reservado'),('a569aa85-bdb0-4f81-88ae-56bba3c8b991','46e92702-33de-4635-8816-c5ea3131dbc9','paciente'),('a9f0ce82-1d66-48d2-afd0-73a2f38baa38','bdef23f4-6753-47cf-b28a-6a96b3956439','preciso'),('aff2947d-b5b4-49c4-bdc3-5729ac2b0bc9','16222f5a-2979-4fe5-8532-9d410095a093','inspirador'),('bacdff62-f92f-4ba1-bb3e-3edb28345a0a','d4a1bc01-a89f-4b26-b254-260bbf3424e2','directo'),('c66a178e-afd8-40fc-b4d5-8cf9fedf65cd','46e92702-33de-4635-8816-c5ea3131dbc9','discreto'),('cb4c4e01-368e-4435-9437-89123848656f','46e92702-33de-4635-8816-c5ea3131dbc9','ecuanime'),('f1bfdcc9-0639-4eee-a51e-7897bf41a22d','bdef23f4-6753-47cf-b28a-6a96b3956439','formal'),('fee74d00-2f2d-4754-a22c-a57cc2f48ebd','d4a1bc01-a89f-4b26-b254-260bbf3424e2','exigente');
+INSERT INTO `words` VALUES ('006ee876-66e7-4ebd-831f-a2b1dee60c6b','d4a1bc01-a89f-4b26-b254-260bbf3424e2','curioso'),('02b074c7-a556-4702-9688-02babcdac88a','d4a1bc01-a89f-4b26-b254-260bbf3424e2','independiente'),('02e97e72-8d40-4fa8-94c0-10ba3a1f118d','46e92702-33de-4635-8816-c5ea3131dbc9','extrovertido'),('09f5601c-c90b-4945-a52f-db8e7d5e46bd','16222f5a-2979-4fe5-8532-9d410095a093','sociable'),('1b38613f-a240-4f54-8f16-7b0e00451455','46e92702-33de-4635-8816-c5ea3131dbc9','cooperativo'),('23b61e92-ce13-456e-ace2-116a3a56a4e8','bdef23f4-6753-47cf-b28a-6a96b3956439','firme'),('23cbde4c-315a-4b07-ad54-55e11a353713','16222f5a-2979-4fe5-8532-9d410095a093','entusiasta'),('26d35aeb-b3af-4301-aa8d-ec8ddfbfd013','bdef23f4-6753-47cf-b28a-6a96b3956439','pruedente'),('29083d24-d471-445b-83a9-166b474e6f65','46e92702-33de-4635-8816-c5ea3131dbc9','fiable'),('2a0c7f78-1179-449a-8ff6-5b5ec6fbbdd4','16222f5a-2979-4fe5-8532-9d410095a093','comunicativo'),('3056bd49-f2a7-41e2-a738-5abcb4c1ff54','d4a1bc01-a89f-4b26-b254-260bbf3424e2','realista'),('458befeb-1e75-4248-9558-8a3e0970cecd','d4a1bc01-a89f-4b26-b254-260bbf3424e2','energetico'),('4beb2003-bbfc-453b-befb-ab7369c116c3','16222f5a-2979-4fe5-8532-9d410095a093','efusivo'),('4c7941cf-8fbd-4e3c-92a7-33961ed5c780','d4a1bc01-a89f-4b26-b254-260bbf3424e2','rapido'),('5b937fb3-6b1b-4f26-84dc-0eb49c6a26de','16222f5a-2979-4fe5-8532-9d410095a093','influyente'),('60fffd13-4cba-4189-a650-fcea7aff8580','d4a1bc01-a89f-4b26-b254-260bbf3424e2','decidido'),('622152bc-2d95-4d2e-8119-f413dec4ee68','46e92702-33de-4635-8816-c5ea3131dbc9','atento'),('64634307-275b-4283-8872-69709de36e1f','bdef23f4-6753-47cf-b28a-6a96b3956439','sensible'),('71170594-2642-448f-bd72-1110f3c077d6','16222f5a-2979-4fe5-8532-9d410095a093','demostrativo'),('76da84ef-e293-443e-a60c-e670c6f1529b','bdef23f4-6753-47cf-b28a-6a96b3956439','reflexivo'),('831aec1b-4ab9-4c53-a24a-2f8ff21c1350','46e92702-33de-4635-8816-c5ea3131dbc9','alerta'),('8744e3fd-3cb4-42dc-9c20-adf87c894a24','46e92702-33de-4635-8816-c5ea3131dbc9','animado'),('8a39628a-95af-4ae6-ae6d-e27c976d6895','bdef23f4-6753-47cf-b28a-6a96b3956439','reservado'),('90537060-dd83-45ea-ab7c-ce50c0cbbe6c','16222f5a-2979-4fe5-8532-9d410095a093','confiado'),('92bc0a19-128e-45c2-99ac-42138d4794b7','bdef23f4-6753-47cf-b28a-6a96b3956439','El compromiso es un acto, no una palabra'),('9dfd2a8d-f713-40c0-8eb4-5c8711e05cff','d4a1bc01-a89f-4b26-b254-260bbf3424e2','autocrítico'),('a569aa85-bdb0-4f81-88ae-56bba3c8b991','46e92702-33de-4635-8816-c5ea3131dbc9','paciente'),('a9f0ce82-1d66-48d2-afd0-73a2f38baa38','bdef23f4-6753-47cf-b28a-6a96b3956439','preciso'),('aff2947d-b5b4-49c4-bdc3-5729ac2b0bc9','16222f5a-2979-4fe5-8532-9d410095a093','inspirador'),('bacdff62-f92f-4ba1-bb3e-3edb28345a0a','d4a1bc01-a89f-4b26-b254-260bbf3424e2','directo'),('c66a178e-afd8-40fc-b4d5-8cf9fedf65cd','46e92702-33de-4635-8816-c5ea3131dbc9','discreto'),('cb4c4e01-368e-4435-9437-89123848656f','46e92702-33de-4635-8816-c5ea3131dbc9','ecuanime'),('dbee98ff-76ac-46a3-9b07-a47db0df174e','16222f5a-2979-4fe5-8532-9d410095a093','autosuficiente'),('ddb76a62-02ec-4f1f-bd5f-7fe46efd3434','bdef23f4-6753-47cf-b28a-6a96b3956439','Sarcástico'),('f1bfdcc9-0639-4eee-a51e-7897bf41a22d','bdef23f4-6753-47cf-b28a-6a96b3956439','formal'),('fee74d00-2f2d-4754-a22c-a57cc2f48ebd','d4a1bc01-a89f-4b26-b254-260bbf3424e2','exigente');
 /*!40000 ALTER TABLE `words` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -173,4 +172,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-02-20  8:27:15
+-- Dump completed on 2023-02-22 11:13:48
