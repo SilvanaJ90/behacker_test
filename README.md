@@ -2,6 +2,10 @@
 
 ## Table of Contents
 
+- [General project requirements](https://github.com/SilvanaJ90/bh_profile#general-project-requirements)
+- [Description of the Project](https://github.com/Giogap/holbertonschool-AirBnB_clone/blob/main/README.md#description-of-the-project/)
+- [Description of the Project](https://github.com/Giogap/holbertonschool-AirBnB_clone/blob/main/README.md#description-of-the-project/)
+- [Description of the Project](https://github.com/Giogap/holbertonschool-AirBnB_clone/blob/main/README.md#description-of-the-project/)
 - [Description of the Project](https://github.com/Giogap/holbertonschool-AirBnB_clone/blob/main/README.md#description-of-the-project/)
 - [Description of the command interpreter](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4#description-of-the-project).
 - [How to Start It](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4#how-to-start-it)
@@ -14,6 +18,8 @@
 
 The development of a tool to profile professional interests and create well-defined job roles and profiles is desired. 
 
+
+- [General project requirementsFor this project you must install the following software ](https://github.com/SilvanaJ90/bh_profile/blob/main/requirements/install.txt)
 
 ## General functionalities
 
@@ -34,7 +40,7 @@ During the development of the tool, the following must be taken into account:
 - At the end of the exercise, the general user will receive an e-mail with a pdf document in which the characteristics of the category with which he/she had the greatest affinity are explained in greater detail.
 - A user may take the test several times [HISTORY MUST BE KEPT PER USER WHEN THE TEST IS TAKEN SEVERAL TIMES].
 
-## Roles de usuario
+## User roles
 
 - General user: in charge of answering the questions
 - Administrator, in charge of creating categories, words, managing users, managing system configuration and generating reports.
