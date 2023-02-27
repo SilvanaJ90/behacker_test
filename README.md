@@ -1,4 +1,4 @@
-# BH 
+# BH PROFILE
 
 ## Table of Contents
 
@@ -10,36 +10,34 @@
 - [Authors](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4#authors)
 
 
-## Requisitos generales del proyecto
+## General project requirements
 
-La empresa X es un ecosistema digital que permite a las personas y a las organizaciones adquirir conocimientos, habilidades, estrategias y desarrollar capacidades para enfrentar los retos de ciberseguridad que se tienen en la sociedad actual y futura.
-
-La empresa desea llevar a cabo el desarrollo de una herramienta que permita perfilar los intereses profesionales, y formar roles y perfiles laborales bien definidos. 
+The development of a tool to profile professional interests and create well-defined job roles and profiles is desired. 
 
 
-## Funcionalidades generales
+## General functionalities
 
-La plataforma permitirá a los usuarios generales crear un perfil que le permita ingresar a la plataforma por medio de usuario y contraseña, este perfíl le brindará la posibilidad de acceder a una serie de vistas en las cuales el sistema le permitirá al usuario seleccionar varias frases o palabras.
+The platform will allow general users to create a profile that will allow them to enter the platform by means of a username and password, this profile will provide the possibility to access a series of views in which the system will allow the user to select several phrases or words.
 
-Cada una de las frases o palabras estará asociada a un categoría específica a medida que el usuario vaya contestando las preguntas, el sistema deberá ir validando la categoría con la cual el usuario tenga mayor afinidad.
+Each of the phrases or words will be associated to a specific category as the user answers the questions, the system will validate the category with which the user has the greatest affinity.
 
-El sistema también contará con un entorno administrativo por medio del cual un usuario con rol administrador podrá visualizar las respuestas de cada una de las personas, las categorías con las cuales tiene mayor afinidad, en este panel también podrá visualizar informes generales asociados a las respuestas proporcionadas por los usuarios. 
+The system will also have an administrative environment through which a user with administrator role will be able to view the responses of each of the people, the categories with which they have greater affinity, in this panel you can also view general reports associated with the answers provided by users.
 
-Durante el desarrollo de la herramienta se debe tener en cuenta: 
+During the development of the tool, the following must be taken into account:
 
--	El usuario ingresará al sistema por medio de usuario y contraseña, este deberá crear su respectivo perfil
--	El administrador tendrá la posibilidad de asignar tantas categorías como desee
--	A cada categoría se asociarán una serie de frases o palabras que serán posteriormente utilizadas como opciones de selección en cada vista. 
--	El sistema ofrecerá al usuario un número máximo de vistas definido por el usuario administrador. 
--	Cada vista mostrará un número máximo de palabras definidas por el usuario administrador
--	A medida que el usuario general va seleccionando palabras de la lista, el sistema irá asignando un mayor peso a las palabras relacionadas a la categoría en la cual se vaya evidenciando una mayor tendencia por parte del usuario.
--	Al finalizar el ejercicio, el usuario general recibirá en su correo electrónico un documento pdf en el cual se da a conocer con mayor detalle las características de la categoría con la cual tuvo mayor afinidad. 
--	Un usuario podrá realizar varias veces el test [SE DEBE CONSERVAR EL HISTÓRICO POR USUARIO CUANDO REALICE VARIAS VECES EL TEST]
+- The user will enter the system by means of a username and password, he/she will have to create his/her respective profile
+- The administrator will have the possibility to assign as many categories as he/she wishes.
+- A series of phrases or words will be associated with each category and will be used as selection options in each view.
+- The system will offer the user a maximum number of views defined by the administrator user.
+- Each view will display a maximum number of words defined by the user administrator.
+- As the general user selects words from the list, the system will assign a higher weight to the words related to the category in which the user shows a greater tendency.
+- At the end of the exercise, the general user will receive an e-mail with a pdf document in which the characteristics of the category with which he/she had the greatest affinity are explained in greater detail.
+- A user may take the test several times [HISTORY MUST BE KEPT PER USER WHEN THE TEST IS TAKEN SEVERAL TIMES].
 
 ## Roles de usuario
 
--	Usuario general: encargado de dar respuesta a las preguntas
--	Administrador, encargado de crear las categorías, palabras, gestionar usuario, gestionar la configuración del sistema y generar informes. 
+- General user: in charge of answering the questions
+- Administrator, in charge of creating categories, words, managing users, managing system configuration and generating reports.
 
 # Módulos del sistema
 
@@ -61,9 +59,9 @@ Informes: se podrá acceder a un módulos de informes, en el cual se visualizan 
 
 ## Description of the Project
 
-**First step: Write a command interpreter to manage your AirBnB objects.**
+**First step: Write a command interpreter to manage your bh_profileAirBnB objects.**
 
-This is the first step towards building your first full web application: the **AirBnB clone.** This first step is very important because you will use what you build during this project with all other following projects: HTML/CSS templating, database storage, API, front-end integration… 
+The development of a tool to profile professional interests and create well-defined job roles and profiles is desired. 
 
 Each task is linked and will help you to:
 
@@ -72,9 +70,9 @@ Each task is linked and will help you to:
         - Instance <-> Dictionary <-> JSON string <-> file
     - create all classes used for AirBnB that inherit from BaseModel
         - User
-        - State
-        -City
-        - Place ..
+        - Test
+        - Word
+        - Category ..
     - create the first abstracted storage engine of the project: 
         - File storage.
     - create all unittests to validate all our classes and storage engine
