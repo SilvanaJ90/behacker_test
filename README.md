@@ -19,7 +19,10 @@
 The development of a tool to profile professional interests and create well-defined job roles and profiles is desired. 
 
 
-- [General project requirementsFor this project you must install the following software ](https://github.com/SilvanaJ90/bh_profile/blob/main/requirements/install.txt)
+- [For this project you must install the following software ](https://github.com/SilvanaJ90/bh_profile/blob/main/requirements/install.txt)
+- [Clone the repository ](https://github.com/SilvanaJ90/bh_profile.git)
+- [Import the following database ](https://github.com/SilvanaJ90/bh_profile/blob/main/requirements/dump_bh_profile_db.sql)
+
 
 ## General functionalities
 
