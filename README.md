@@ -1,8 +1,7 @@
-# BeHacker Test
 
 ## Requisitos generales del proyecto
 
-La empresa BehackerPro es un ecosistema digital que permite a las personas y a las organizaciones adquirir conocimientos, habilidades, estrategias y desarrollar capacidades para enfrentar los retos de ciberseguridad que se tienen en la sociedad actual y futura.
+La empresa X es un ecosistema digital que permite a las personas y a las organizaciones adquirir conocimientos, habilidades, estrategias y desarrollar capacidades para enfrentar los retos de ciberseguridad que se tienen en la sociedad actual y futura.
 
 La empresa desea llevar a cabo el desarrollo de una herramienta que permita perfilar los intereses profesionales, y formar roles y perfiles laborales bien definidos. 
 
