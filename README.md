@@ -124,6 +124,11 @@ The console will be a tool to validate this storage engine
 
 ![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/console.png)
 
+This project has a console that allows you to create, update, delete, insert data into 
+- [The database using the following commands ](https://github.com/SilvanaJ90/bh_profile/blob/main/requirements/console_mysql.txt)
+- [Learn more about the console here ](https://github.com/SilvanaJ90/bh_profile/blob/main/requirements/console.txt)
+
+
 ### Web static
 
 
@@ -163,85 +168,6 @@ The console will be a tool to validate this storage engine
 
 ![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/dynamic.png)
 
-## How to Use It
-
-| Command | Description |
-| --- | --- |
-| help | The help command is a command prompt,  command that's used to provide more information on another command. |
-| EOF | Exit the program. |
-| quit | Exit the program. |
-| create | Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id. Ex: $ create BaseModel. |
-| show | Prints the string representation of an instance based on the class name and id. Ex: $ show BaseModel 1234-1234-1234. |
-| destroy | Deletes an instance based on the class name and id (save the change into the JSON file). Ex: $ destroy BaseModel 1234-1234-1234. |
-| all | Prints all string representation of all instances based or not on the class name. Ex: $ all BaseModel or $ all. |
-| update | Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file). Ex: $ update BaseModel 1234-1234-1234 email "aibnb@mail.com". |
-
-
-## Examples
-
-Commad:
-
-help:
-```
-./console.py 
-(hbnb) help
-
-Documented commands (type help <topic>):
-========================================
-EOF  all  create  destroy  help  quit  show  update
-```
-
-
-quit and EOF:
-```
-./console.py 
-(hbnb) help quit
-Quit command to exit the program
-(hbnb) help EOF
-Quit command to exit the program
-(hbnb) quit
-```
-
-create:
-```
-./console.py 
-(hbnb) create BaseModel
-bb711919-2e80-4ce2-85aa-454484f89013
-(hbnb) 
-```
-
-show:
-```
-./console.py 
-(hbnb) show BaseModel bb711919-2e80-4ce2-85aa-454484f89013
-[BaseModel] (bb711919-2e80-4ce2-85aa-454484f89013) {'id': 'bb711919-2e80-4ce2-85aa-454484f89013', 'created_at': datetime.datetime(2022, 10, 29, 18, 31, 52, 943770), 'updated_at': datetime.datetime(2022, 10, 29, 18, 31, 52, 943843)}
-(hbnb)
-```
-
-destroy:
-```
-./console.py 
-(hbnb) destroy BaseModel bb711919-2e80-4ce2-85aa-454484f89013
-(hbnb)
-```
-
-all:
-```
-./console.py 
-(hbnb) all BaseModel
-["[BaseModel] (24a40c4d-d6b9-4d48-999e-033a3dcf3e59) {'id': '24a40c4d-d6b9-4d48-999e-033a3dcf3e59', 'created_at': datetime.datetime(2022, 10, 28, 15, 42, 50, 756172), 'updated_at': datetime.datetime(2022, 10, 28, 15, 42, 50, 756225)}", "[BaseModel] (5acb1f7f-386a-473a-9b45-b68a01a33fb9) {'id': '5acb1f7f-386a-473a-9b45-b68a01a33fb9', 'created_at': datetime.datetime(2022, 10, 28, 16, 8, 56, 496681), 'updated_at': datetime.datetime(2022, 10, 28, 16, 8, 56, 496725)}", "[BaseModel] (0079d3d4-9527-44ba-92be-2f15061964ad) {'id': '0079d3d4-9527-44ba-92be-2f15061964ad', 'created_at': datetime.datetime(2022, 10, 29, 18, 31, 30, 922270), 'updated_at': datetime.datetime(2022, 10, 29, 18, 31, 30, 922286)}"]
-(hbnb) 
-```
-
-update:
-```
-./console.py 
-(hbnb) create BaseModel
-683382c7-0351-4249-8987-ce2c42c0f1df
-(hbnb) update BaseModel 683382c7-0351-4249-8987-ce2c42c0f1df first_name "Betty"
-(hbnb) show BaseModel 683382c7-0351-4249-8987-ce2c42c0f1df
-[BaseModel] (683382c7-0351-4249-8987-ce2c42c0f1df) {'id': '683382c7-0351-4249-8987-ce2c42c0f1df', 'created_at': datetime.datetime(2022, 10, 29, 18, 39, 5, 144900), 'updated_at': datetime.datetime(2022, 10, 29, 18, 39, 5, 144949), 'first_name': '"Betty"'}
-```
 
 ## Authors
 ### This file lists all individuals having contributed content to the repository.
