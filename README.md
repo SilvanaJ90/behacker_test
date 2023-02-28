@@ -98,61 +98,15 @@ In our case, we want to be able to manage the objects of our project:
 
 ## How to Start It
 Execution
+- Start the flask server
 ```
-Your shell should work like this in interactive mode:
-$ ./console.py
-(hbnb) help
-
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-
-(hbnb) 
-(hbnb) 
-(hbnb) quit
-$
+HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db python3 -m app.app_profile
+```
+- Start api rest
+```
+HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db HBNB_TYPE_STORAGE=db HBNB_API_HOST=0.0.0.0 HBNB_API_PORT=5001 python3 -m api.v1.app
 ```
 
-But also in non-interactive mode: (like the Shell project in C)
-```
-$ echo "help" | ./console.py
-(hbnb)
-
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-(hbnb) 
-$
-$ cat test_help
-help
-$
-$ cat test_help | ./console.py
-(hbnb)
-
-Documented commands (type help <topic>):
-========================================
-EOF  help  quit
-(hbnb) 
-$
-```
-All tests should also pass in non-interactive mode: $ echo "python3 -m unittest discover tests" | bash
-
-### Steps
-
-You won’t build this application all at once, but step by step.
-
-Each step will link to a concept:
-The console
-
-    create your data model
-    manage (create, update, destroy, etc) objects via a console / command interpreter
-    store and persist objects to a file (JSON file)
-
-The first piece is to manipulate a powerful storage system. This storage engine will give us an abstraction between “My object” and “How they are stored and persisted”. This means: from your console code (the command interpreter itself) and from the front-end and RestAPI you will build later, you won’t have to pay attention (take care) of how your objects are stored.
-
-This abstraction will also allow you to change the type of storage easily without updating all of your codebase.
-
-The console will be a tool to validate this storage engine
 ## BH profile - development of the project
 
 ### The console
