@@ -168,7 +168,7 @@ This abstraction will also allow you to change the type of storage easily withou
 
 The console will be a tool to validate this storage engine
 
-![This is an image](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4/blob/main/img/console.png)
+![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/console.png)
 
 ### Web static
 
@@ -178,34 +178,34 @@ The console will be a tool to validate this storage engine
     - create template of each object
 
 
-![This is an image](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4/blob/main/img/web-static.png)
+![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/web-static.png)
 
 ### MySQL storage
 
     - replace the file storage by a Database storage
     - map your models to a table in database by using an O.R.M.
 
-![This is an image](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4/blob/main/img/mysql.png)
+![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/mysql.png)
 
 ### Web framework - templating
 
     - create your first web server in Python
     - make your static HTML file dynamic by using objects stored in a file or database
 
-![This is an image](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4/blob/main/img/framework.png)
+![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/framework.png)
 
 ### RESTful API
 
     - expose all your objects stored via a JSON web interface
     - manipulate your objects via a RESTful API
 
-![This is an image](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4/blob/main/img/api.png)
+![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/api.png)
 
-### AirBnB clone - Web dynamic
+### BH Profile - Web dynamic
     - learn JQuery
     - load objects from the client side by using your own RESTful API
 
-![This is an image](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4/blob/main/img/dynamic.png)
+![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/dynamic.png)
 
 ## How to Use It
 
