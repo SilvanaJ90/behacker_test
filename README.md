@@ -139,6 +139,6 @@ This project has a console that allows you to create, update, delete, insert dat
 
 ## Authors
 ### This file lists all individuals having contributed content to the repository.
-- Giovanni Pérez <5187@holbertonstudents.com>
-- Silvana Jaramillo <5211@holbertonstudents.com>
-- Jhonatan Ramos <5202@holbertonstudents.com>
+- Giovanni Pérez -linkedin: silvana-jaramillo-0b581b1a7
+- Silvana Jaramillo -linkedin:  tattanramox
+- Jhonatan Ramos linkedin: giovanni-pérez-6600553b
