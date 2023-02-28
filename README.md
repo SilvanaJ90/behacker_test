@@ -153,7 +153,7 @@ The first piece is to manipulate a powerful storage system. This storage engine 
 This abstraction will also allow you to change the type of storage easily without updating all of your codebase.
 
 The console will be a tool to validate this storage engine
-## AirBnB clone - development of the project
+## BH profile - development of the project
 
 ### The console
 
