@@ -3,8 +3,8 @@
 ## Table of Contents
 
 - [General project requirements](https://github.com/SilvanaJ90/bh_profile#general-project-requirements)
-- [Description of the Project](https://github.com/Giogap/holbertonschool-AirBnB_clone/blob/main/README.md#description-of-the-project/)
-- [Description of the Project](https://github.com/Giogap/holbertonschool-AirBnB_clone/blob/main/README.md#description-of-the-project/)
+- [General functionalities](https://github.com/SilvanaJ90/bh_profile#general-functionalities)
+- [User roles](https://github.com/SilvanaJ90/bh_profile#user-roles)
 - [Description of the Project](https://github.com/Giogap/holbertonschool-AirBnB_clone/blob/main/README.md#description-of-the-project/)
 - [Description of the Project](https://github.com/Giogap/holbertonschool-AirBnB_clone/blob/main/README.md#description-of-the-project/)
 - [Description of the command interpreter](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4#description-of-the-project).
@@ -22,6 +22,7 @@ The development of a tool to profile professional interests and create well-defi
 - [For this project you must install the following software ](https://github.com/SilvanaJ90/bh_profile/blob/main/requirements/install.txt)
 - [Clone the repository ](https://github.com/SilvanaJ90/bh_profile.git)
 - [Import the following database ](https://github.com/SilvanaJ90/bh_profile/blob/main/requirements/dump_bh_profile_db.sql)
+command: ```cat dump_bh_profile_db.sql | sudo mysql -uroot -p```
 
 
 ## General functionalities
@@ -48,24 +49,21 @@ During the development of the tool, the following must be taken into account:
 - General user: in charge of answering the questions
 - Administrator, in charge of creating categories, words, managing users, managing system configuration and generating reports.
 
-# Módulos del sistema
+## Customer environment: 
 
-## Entorno cliente: 
+System access module: through this module the user will be able to register, enter the system, remember his/her password in case he/she has forgotten it.
 
-Módulo de acceso al sistema: por medio de este módulo el usuario podrá registrarse, ingresar al sistema, recordar su contraseña en caso de haberlo olvidado.  [VALIDAR SI REALMENTE SE REQUIERE EL REGISTRO DEL USUARIO]
+Profiling views: When entering the system the user will be able to visualize a series of views, which will simulate a questionnaire, in each of these views phrases and words will be displayed, which must be selected by the user. The phrases or words will be taken randomly from the different categories.
 
-Vistas de perfilamiento: Al ingresar al sistema el usuario podrá visualizar una serie de vistas, las cuales simularán un cuestionario, en cada una de estas vistas se podrá visualizar frases y palabras las cuales deberán ser seleccionadas por el usuario. Las frases o palabras serán tomadas de las diferentes categorías de forma aleatoria. 
+## Administrator environment:
 
-## Entorno administrador: 
+Categories: the administrator user can manage the different categories of the system.
 
-Categorías: el usuario administrador podrá gestionar las diferentes categorías del sistema.
+Words by categories: the module will allow the management of the different words.
 
-Palabras por categorías: el módulo permitirá la gestión de las diferentes palabras. 
+User: each of the registered users can be displayed with their respective information and the tests developed.
 
-Usuario: se podrá visualizar cada uno de los usuarios registrados con su respectiva información y los test desarrollados. 
-
-Informes: se podrá acceder a un módulos de informes, en el cual se visualizan las tendencias de roles. 
-
+Reports: a report module can be accessed, in which role trends are displayed.
 ## Description of the Project
 
 **First step: Write a command interpreter to manage your bh_profileAirBnB objects.**
