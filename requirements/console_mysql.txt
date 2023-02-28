@@ -1,0 +1,119 @@
+## mysql test
+DBStorage - Categories and Words
+
+Category creation:
+
+silvanaj@SJARAMILLO:$echo 'create Category name="Compliance"' | HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./console.py 
+(hbnb) 232cd682-b3ce-4fd9-93b8-bd4aaa04eb50
+
+silvanaj@SJARAMILLO:$echo 'create Category name="Dominancia"' | HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./console.py 
+(hbnb) d6c64fb0-aa2c-45f5-a61c-b832c5310f6a
+
+silvanaj@SJARAecho 'create Category name="Estabilidad"' | HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./console.py ole.py 
+(hbnb) 17ee7aba-1126-4bc9-b679-cbf2ba68f533
+
+silvanaj@SJARAMILLO:$echo 'all Category' | HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./console.py ole.py 
+(hbnb) [[Category] (17ee7aba-1126-4bc9-b679-cbf2ba68f533) {'_sa_instance_state': <sqlalchemy.orm.state.InstanceState object at 0x7faf195a1ae0>, 'id': '17ee7aba-1126-4bc9-b679-cbf2ba68f533', 'created_at': datetime.datetime(2023, 1, 28, 2, 49, 11), 'description': None, 'updated_at': datetime.datetime(2023, 1, 28, 2, 49, 11), 'name': 'Estabilidad', 'file': None}, [Category] (232cd682-b3ce-4fd9-93b8-bd4aaa04eb50) {'_sa_instance_state': <sqlalchemy.orm.state.InstanceState object at 0x7faf195a1a80>, 'id': '232cd682-b3ce-4fd9-93b8-bd4aaa04eb50', 'created_at': datetime.datetime(2023, 1, 28, 2, 47, 36), 'description': None, 'updated_at': datetime.datetime(2023, 1, 28, 2, 47, 36), 'name': 'cumplimiento', 'file': None}, [Category] (d6c64fb0-aa2c-45f5-a61c-b832c5310f6a) {'_sa_instance_state': <sqlalchemy.orm.state.InstanceState object at 0x7faf195a1a50>, 'id': 'd6c64fb0-aa2c-45f5-a61c-b832c5310f6a', 'created_at': datetime.datetime(2023, 1, 28, 2, 49, 5), 'description': None, 'updated_at': datetime.datetime(2023, 1, 28, 2, 49, 5), 'name': 'Dominancia', 'file': None}]
+
+silvanaj@SJARAecho 'SELECT * FROM categories\G' | mysql -ubh_profile_dev -p bh_profile_dbfile_db
+Enter password: 
+*************************** 1. row ***************************
+         id: 17ee7aba-1126-4bc9-b679-cbf2ba68f533
+       name: Estabilidad
+description: NULL
+       file: NULL
+*************************** 2. row ***************************
+         id: 232cd682-b3ce-4fd9-93b8-bd4aaa04eb50
+       name: cumplimiento
+description: NULL
+       file: NULL
+*************************** 3. row ***************************
+         id: d6c64fb0-aa2c-45f5-a61c-b832c5310f6a
+       name: Dominancia
+description: NULL
+       file: NULL
+
+
+Words creation
+silvanaj@SJARAMILLO:$echo 'create Word categories_id="17ee7aba-1126-4bc9-b679-cbf2ba68f533" name="atento"' | HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./console.py 
+(hbnb) 5cb9777b-9732-4162-a832-28c008179cb8
+
+silvanaj@SJARAMILLO:$echo 'create Word categories_id="17ee7aba-1126-4bc9-b679-cbf2ba68f533" name="ecuanime"' | HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./console.py
+(hbnb) 1e8f95c5-d637-4bc6-98ee-adf1f67ea332
+
+silvanaj@SJARAecho 'create Word categories_id="232cd682-b3ce-4fd9-93b8-bd4aaa04eb50" name="preciso"' | HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./console.py
+(hbnb) b5e3f654-afd9-43bb-bc19-94af83bf2d0c
+
+silvanaj@SJARAecho 'create Word categories_id="232cd682-b3ce-4fd9-93b8-bd4aaa04eb50" name="reservado"' | HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./console.pysole.py
+(hbnb) b7380468-8871-4215-8454-67498e3f8400
+
+silvanaj@SJARAecho 'create Word categories_id="d6c64fb0-aa2c-45f5-a61c-b832c5310f6a" name="decidido"' | HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./console.py
+(hbnb) 8818c220-a40f-471f-857f-87fdfbf0f3c1
+
+silvanaj@SJARAecho 'create Word categories_id="d6c64fb0-aa2c-45f5-a61c-b832c5310f6a" name="energetico"' | HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./console.py
+(hbnb) 28ba7296-f685-4380-87a8-cbf00ff34b0d
+
+silvanaj@SJARAMILLO:$echo 'all Word' | HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./console.py 
+(hbnb) [[Word] (1e8f95c5-d637-4bc6-98ee-adf1f67ea332) {'_sa_instance_state': <sqlalchemy.orm.state.InstanceState object at 0x7fd8c48c5ab0>, 'created_at': datetime.datetime(2023, 1, 28, 3, 1, 5), 'name': 'ecuanime', 'id': '1e8f95c5-d637-4bc6-98ee-adf1f67ea332', 'categories_id': '17ee7aba-1126-4bc9-b679-cbf2ba68f533', 'updated_at': datetime.datetime(2023, 1, 28, 3, 1, 5)}, [Word] (28ba7296-f685-4380-87a8-cbf00ff34b0d) {'_sa_instance_state': <sqlalchemy.orm.state.InstanceState object at 0x7fd8c48c5a50>, 'created_at': datetime.datetime(2023, 1, 28, 3, 2, 55), 'name': 'energetico', 'id': '28ba7296-f685-4380-87a8-cbf00ff34b0d', 'categories_id': 'd6c64fb0-aa2c-45f5-a61c-b832c5310f6a', 'updated_at': datetime.datetime(2023, 1, 28, 3, 2, 55)}, [Word] (5cb9777b-9732-4162-a832-28c008179cb8) {'_sa_instance_state': <sqlalchemy.orm.state.InstanceState object at 0x7fd8c48c5a20>, 'created_at': datetime.datetime(2023, 1, 28, 3, 0, 4), 'name': 'atento', 'id': '5cb9777b-9732-4162-a832-28c008179cb8', 'categories_id': '17ee7aba-1126-4bc9-b679-cbf2ba68f533', 'updated_at': datetime.datetime(2023, 1, 28, 3, 0, 4)}, [Word] (8818c220-a40f-471f-857f-87fdfbf0f3c1) {'_sa_instance_state': <sqlalchemy.orm.state.InstanceState object at 0x7fd8c48c5b40>, 'created_at': datetime.datetime(2023, 1, 28, 3, 2, 35), 'name': 'decidido', 'id': '8818c220-a40f-471f-857f-87fdfbf0f3c1', 'categories_id': 'd6c64fb0-aa2c-45f5-a61c-b832c5310f6a', 'updated_at': datetime.datetime(2023, 1, 28, 3, 2, 35)}, [Word] (b5e3f654-afd9-43bb-bc19-94af83bf2d0c) {'_sa_instance_state': <sqlalchemy.orm.state.InstanceState object at 0x7fd8c48c5ba0>, 'created_at': datetime.datetime(2023, 1, 28, 3, 1, 42), 'name': 'preciso', 'id': 'b5e3f654-afd9-43bb-bc19-94af83bf2d0c', 'categories_id': '232cd682-b3ce-4fd9-93b8-bd4aaa04eb50', 'updated_at': datetime.datetime(2023, 1, 28, 3, 1, 42)}, [Word] (b7380468-8871-4215-8454-67498e3f8400) {'_sa_instance_state': <sqlalchemy.orm.state.InstanceState object at 0x7fd8c48c5c60>, 'created_at': datetime.datetime(2023, 1, 28, 3, 2, 3), 'name': 'reservado', 'id': 'b7380468-8871-4215-8454-67498e3f8400', 'categories_id': '232cd682-b3ce-4fd9-93b8-bd4aaa04eb50', 'updated_at': datetime.datetime(2023, 1, 28, 3, 2, 3)}]
+
+silvanaj@SJARA:echo 'SELECT * FROM words\G' | mysql -ubh_profile_dev -p bh_profile_dbfile_db
+Enter password: 
+*************************** 1. row ***************************
+           id: 1e8f95c5-d637-4bc6-98ee-adf1f67ea332
+categories_id: 17ee7aba-1126-4bc9-b679-cbf2ba68f533
+         name: ecuanime
+*************************** 2. row ***************************
+           id: 28ba7296-f685-4380-87a8-cbf00ff34b0d
+categories_id: d6c64fb0-aa2c-45f5-a61c-b832c5310f6a
+         name: energetico
+*************************** 3. row ***************************
+           id: 5cb9777b-9732-4162-a832-28c008179cb8
+categories_id: 17ee7aba-1126-4bc9-b679-cbf2ba68f533
+         name: atento
+*************************** 4. row ***************************
+           id: 8818c220-a40f-471f-857f-87fdfbf0f3c1
+categories_id: d6c64fb0-aa2c-45f5-a61c-b832c5310f6a
+         name: decidido
+*************************** 5. row ***************************
+           id: b5e3f654-afd9-43bb-bc19-94af83bf2d0c
+categories_id: 232cd682-b3ce-4fd9-93b8-bd4aaa04eb50
+         name: preciso
+*************************** 6. row ***************************
+           id: b7380468-8871-4215-8454-67498e3f8400
+categories_id: 232cd682-b3ce-4fd9-93b8-bd4aaa04eb50
+         name: reservado
+
+
+mysql:
+mysql> SELECT id, categories_id, name FROM words WHERE categories_id = (SELECT id FROM categories WHERE id='232cd682-b3ce-4fd9-93b8-bd4aaa04eb50') ORDER BY id
+ ASC;
++--------------------------------------+--------------------------------------+-----------+
+| id                                   | categories_id                        | name      |
++--------------------------------------+--------------------------------------+-----------+
+| b5e3f654-afd9-43bb-bc19-94af83bf2d0c | 232cd682-b3ce-4fd9-93b8-bd4aaa04eb50 | preciso   |
+| b7380468-8871-4215-8454-67498e3f8400 | 232cd682-b3ce-4fd9-93b8-bd4aaa04eb50 | reservado |
++--------------------------------------+--------------------------------------+-----------+
+2 rows in set (0,00 sec)
+
+all categories
+ysql> SELECT id, categories_id, name FROM words ORDER BY id ASC;
++--------------------------------------+--------------------------------------+------------+
+| id                                   | categories_id                        | name       |
++--------------------------------------+--------------------------------------+------------+
+| 1e8f95c5-d637-4bc6-98ee-adf1f67ea332 | 17ee7aba-1126-4bc9-b679-cbf2ba68f533 | ecuanime   |
+| 28ba7296-f685-4380-87a8-cbf00ff34b0d | d6c64fb0-aa2c-45f5-a61c-b832c5310f6a | energetico |
+| 5cb9777b-9732-4162-a832-28c008179cb8 | 17ee7aba-1126-4bc9-b679-cbf2ba68f533 | atento     |
+| 8818c220-a40f-471f-857f-87fdfbf0f3c1 | d6c64fb0-aa2c-45f5-a61c-b832c5310f6a | decidido   |
+| b5e3f654-afd9-43bb-bc19-94af83bf2d0c | 232cd682-b3ce-4fd9-93b8-bd4aaa04eb50 | preciso    |
+| b7380468-8871-4215-8454-67498e3f8400 | 232cd682-b3ce-4fd9-93b8-bd4aaa04eb50 | reservado  |
++--------------------------------------+--------------------------------------+------------+
+6 rows in set (0,00 sec)
+
+
+
+Create table User
+en is_user se asigna el rol true = usuario user, false usuario admin
+silvanaj@SJARAMILLO:$echo 'create User email="gui@hbtn.io" password="guipwd" first_name="Guillaume" last_name="Snow" is_user="true"' | HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./console.py
+(hbnb) b82fedbe-2056-4fa2-a34e-556ebf709217
+
+echo 'create User email="admin@test.io" password="admin10" first_name="pepito" last_name="perez" is_user="false"' | HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=localhost HBNB_MYSQL_DB=bh_profile_db HBNB_TYPE_STORAGE=db ./console.py
