@@ -7,12 +7,12 @@
 - [User roles](https://github.com/SilvanaJ90/bh_profile#user-roles)
 - [Customer environment:](https://github.com/SilvanaJ90/bh_profile#customer-environment)
 - [Administrator environment:](https://github.com/SilvanaJ90/bh_profile#administrator-environment)
-- [Description of the Project](https://github.com/Giogap/holbertonschool-AirBnB_clone/blob/main/README.md#description-of-the-project/)
-- [Description of the command interpreter](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4#description-of-the-project).
-- [How to Start It](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4#how-to-start-it)
-- [How to Use It](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4#how-to-use-it)
-- [Examples](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4#examples)
-- [Authors](https://github.com/Giogap/holbertonschool-AirBnB_clone_v4#authors)
+- [Description of the Project](https://github.com/SilvanaJ90/bh_profile#description-of-the-project)
+- [Description of the command interpreter](https://github.com/SilvanaJ90/bh_profile#description-of-the-command-interpreter).
+- [How to Start It](https://github.com/SilvanaJ90/bh_profile#how-to-start-it)
+- [How to Use It](https://github.com/SilvanaJ90/bh_profile#how-to-use-it)
+- [Examples](https://github.com/SilvanaJ90/bh_profile#examples)
+- [Authors](https://github.com/SilvanaJ90/bh_profile#authors)
 
 
 ## General project requirements
