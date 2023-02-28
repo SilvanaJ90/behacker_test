@@ -7,11 +7,7 @@
 - [User roles](https://github.com/SilvanaJ90/bh_profile#user-roles)
 - [Customer environment:](https://github.com/SilvanaJ90/bh_profile#customer-environment)
 - [Administrator environment:](https://github.com/SilvanaJ90/bh_profile#administrator-environment)
-- [Description of the Project](https://github.com/SilvanaJ90/bh_profile#description-of-the-project)
-- [Description of the command interpreter](https://github.com/SilvanaJ90/bh_profile#description-of-the-command-interpreter).
 - [How to Start It](https://github.com/SilvanaJ90/bh_profile#how-to-start-it)
-- [How to Use It](https://github.com/SilvanaJ90/bh_profile#how-to-use-it)
-- [Examples](https://github.com/SilvanaJ90/bh_profile#examples)
 - [Authors](https://github.com/SilvanaJ90/bh_profile#authors)
 
 
@@ -65,36 +61,6 @@ Words by categories: the module will allow the management of the different words
 User: each of the registered users can be displayed with their respective information and the tests developed.
 
 Reports: a report module can be accessed, in which role trends are displayed.
-## Description of the Project
-
-**First step: Write a command interpreter to manage your bh_profileAirBnB objects.**
-
-The development of a tool to profile professional interests and create well-defined job roles and profiles is desired. 
-
-Each task is linked and will help you to:
-
-    - put in place a parent class (called BaseModel) to take care of the initialization, serialization and          deserialization of your future instances
-    - create a simple flow of serialization/deserialization:
-        - Instance <-> Dictionary <-> JSON string <-> file
-    - create all classes used for AirBnB that inherit from BaseModel
-        - User
-        - Test
-        - Word
-        - Category ..
-    - create the first abstracted storage engine of the project: 
-        - File storage.
-    - create all unittests to validate all our classes and storage engine
-
-## Description of the command interpreter
-
-The console will be used for access of the functionalities offered by our components.
-In our case, we want to be able to manage the objects of our project:
-
-    - Create a new object (ex: a new User or a new Place)
-    - Retrieve an object from a file, a database etc…
-    - Do operations on objects (count, compute stats, etc…)
-    - Update attributes of an object
-    - Destroy an object
 
 ## How to Start It
 Execution
