@@ -182,7 +182,7 @@ The console will be a tool to validate this storage engine
 
 ### MySQL storage
 
-![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/db.pngg)
+![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/db.png)
 
     - replace the file storage by a Database storage
     - map your models to a table in database by using an O.R.M.
