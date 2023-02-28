@@ -159,6 +159,8 @@ This project has a console that allows you to create, update, delete, insert dat
 
     - expose all your objects stored via a JSON web interface
     - manipulate your objects via a RESTful API
+    
+    The api is documented, you can access it through the following link http://127.0.0.1:5001/apidocs/
 
 ![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/api.png)
 
