@@ -85,10 +85,7 @@ This project has a console that allows you to create, update, delete, insert dat
 
 ### MySQL storage
 
-![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/db.png)
-
-    - replace the file storage by a Database storage
-    - map your models to a table in database by using an O.R.M.
+Mysql database, an O.R.M storage was implemented with sqlalchemy
 
 
 ### RESTful API
@@ -98,7 +95,7 @@ This project has a console that allows you to create, update, delete, insert dat
     
     The api is documented, you can access it through the following link http://127.0.0.1:5001/apidocs/
 
-![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/api.png)
+![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/apirest.png)
 
 
 ## Technology Implemented:
