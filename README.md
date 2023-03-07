@@ -43,16 +43,23 @@ During the development of the tool, the following must be taken into account:
 
 ## User roles
 
+![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/login.png)
+
 - General user: in charge of answering the questions
 - Administrator, in charge of creating categories, words, managing users, managing system configuration and generating reports.
 
 ## Customer environment: 
+
+![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/test.png)
 
 System access module: through this module the user will be able to register, enter the system, remember his/her password in case he/she has forgotten it.
 
 Profiling views: When entering the system the user will be able to visualize a series of views, which will simulate a questionnaire, in each of these views phrases and words will be displayed, which must be selected by the user. The phrases or words will be taken randomly from the different categories.
 
 ## Administrator environment:
+
+
+![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/admin.png)
 
 Categories: the administrator user can manage the different categories of the system.
 
