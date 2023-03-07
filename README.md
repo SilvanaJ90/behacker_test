@@ -98,7 +98,7 @@ This project has a console that allows you to create, update, delete, insert dat
     
     The api is documented, you can access it through the following link http://127.0.0.1:5001/apidocs/
 
-![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/api.png)
+![This is an image](https://github.com/SilvanaJ90/bh_profile/img/api.png)
 
 
 ## Technology Implemented:
@@ -108,6 +108,9 @@ This project has a console that allows you to create, update, delete, insert dat
 
 ## Authors
 ### This file lists all individuals having contributed content to the repository.
-- Giovanni Pérez -linkedin: silvana-jaramillo-0b581b1a7
-- Silvana Jaramillo -linkedin:  tattanramox
-- Jhonatan Ramos linkedin: giovanni-pérez-6600553b
+- Silvana Jaramillo
+ <a href="https://linkedin.com/in/silvana-jaramillo" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="silvana-jaramillo" height="30" width="40" /></a>
+- Giovanni Pérez
+ <a href="https://linkedin.com/in/giovanni-pérez-6600553b" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="silvana-jaramillo" height="30" width="40" /></a>
+- Jhonatan Ramos
+ <a href="https://linkedin.com/in/tattanramox" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="silvana-jaramillo" height="30" width="40" /></a>
