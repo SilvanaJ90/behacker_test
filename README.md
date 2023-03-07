@@ -75,35 +75,13 @@ HBNB_MYSQL_USER=bh_profile_dev HBNB_MYSQL_PWD=bh_profile_pwd HBNB_MYSQL_HOST=loc
 
 ## BH profile - development of the project
 
-### The console
-
-
-    - create your data model
-    - manage (create, update, destroy, etc) objects via a console / command interpreter
-    - store and persist objects to a file (JSON file)
-
-The first piece is to manipulate a powerful storage system. This storage engine will give us an abstraction between “My object” and “How they are stored and persisted”. This means: from your console code (the command interpreter itself) and from the front-end and RestAPI you will build later, you won’t have to pay attention (take care) of how your objects are stored.
-
-This abstraction will also allow you to change the type of storage easily without updating all of your codebase.
-
-The console will be a tool to validate this storage engine
-
-![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/console.png)
 
 This project has a console that allows you to create, update, delete, insert data into 
 - [The database using the following commands ](https://github.com/SilvanaJ90/bh_profile/blob/main/requirements/console_mysql.txt)
 - [Learn more about the console here ](https://github.com/SilvanaJ90/bh_profile/blob/main/requirements/console.txt)
 
 
-### Web static
 
-
-    - learn HTML/CSS
-    - create the HTML of your application
-    - create template of each object
-
-
-![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/web-static.png)
 
 ### MySQL storage
 
@@ -112,14 +90,6 @@ This project has a console that allows you to create, update, delete, insert dat
     - replace the file storage by a Database storage
     - map your models to a table in database by using an O.R.M.
 
-![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/mysql.png)
-
-### Web framework - templating
-
-    - create your first web server in Python
-    - make your static HTML file dynamic by using objects stored in a file or database
-
-![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/framework.png)
 
 ### RESTful API
 
@@ -130,11 +100,10 @@ This project has a console that allows you to create, update, delete, insert dat
 
 ![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/api.png)
 
-### BH Profile - Web dynamic
-    - learn JQuery
-    - load objects from the client side by using your own RESTful API
 
-![This is an image](https://github.com/SilvanaJ90/bh_profile/blob/main/img/dynamic.png)
+## Technology Implemented:
+<p align="left"> <a href="https://getbootstrap.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain-wordmark.svg" alt="bootstrap" width="40" height="40"/> </a> <a href="https://www.w3schools.com/css/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original-wordmark.svg" alt="css3" width="40" height="40"/> </a> <a href="https://flask.palletsprojects.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/pocoo_flask/pocoo_flask-icon.svg" alt="flask" width="40" height="40"/> </a> <a href="https://www.w3.org/html/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original-wordmark.svg" alt="html5" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://www.python.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="python" width="40" height="40"/> </a> </p>
+
 
 
 ## Authors
