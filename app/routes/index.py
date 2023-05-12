@@ -21,3 +21,8 @@ def test():
 @app_routes.route('/admin')
 def get_categories():
     return render_template("admin.html")
+
+@app_routes.route("/words")
+def get_words():
+
+    return render_template("words.html")

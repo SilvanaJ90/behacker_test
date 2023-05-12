@@ -1,30 +1,38 @@
-const d = document,
-  $title = d.querySelector("#crud-title");
-
-let app = {
+let app_words = {
     backend: 'http://127.0.0.1:5001/api/v1',
     table : null,
     init: function() {
-        app.initDatatable('#categories');
+          // Get the id parameter from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryId = urlParams.get('category_id');
 
-        $("#save").click(function(){
-            app.save({
-                name : $('#name').val(),
-                description: $('#description').val(),
-                file_name: $('#file_name').val()
+        // Set the title to the category name
+        const $title = document.querySelector("#crud-title");
+        $.ajax({
+            url: app_words.backend + '/categories/' + categoryId,
+            success: function(category) {
+                $title.textContent = 'Palabras de la categoría: ' + category.name;
+            }
+        });
+
+        // Use the categoryId to set the url property of the ajax option
+        app_words.initDatatable('#words', app_words.backend + '/categories/' + categoryId + '/words');
+
+        // Add event listeners for the save and update buttons
+        $("#Wordsave").click(function(){
+            app_words.Wordsave(app_words.backend + '/categories/' + categoryId + '/words', {
+                name : $('#WordName').val()
             });
         });
-        $("#save_put").click(function(){
-            app.save_put({
-                id : $('#id_put').val(),
-                name : $('#name_put').val(),
-                description: $('#description_put').val(),
-                file_name: $('#file_name_put').val()
+        $("#WordSavePut").click(function(){
+            app_words.WordSavePut({
+                id : $('#WordIdPut').val(),
+                name : $('#WordNamePut').val()
             });
         });
     },
-    initDatatable : function(id) {
-        app.table = $(id).DataTable({
+    initDatatable : function(id, url) {
+        app_words.table = $(id).DataTable({
             language: {
                 "decimal": "",
                 "emptyTable": "No hay información",
@@ -46,7 +54,7 @@ let app = {
                 }
             },
             ajax : {
-                url : app.backend + '/categories/',
+                url: url,
                 dataSrc : function(json) {
                     return json;
                 }
@@ -72,21 +80,11 @@ let app = {
                     }
                 },
 
-
-                {
-                    text : '<i class="fa-solid fa-align-justify"></i>',
-                    action : function(e, dt, node, config) {
-                        let data = dt.rows('.table-active').data()[0];
-                        app.setDataToModal(data);
-                        app.load_words(data.id);
-                    }
-                },
-
                 {
                     text : '<i class="fa-solid fa-plus"></i>',
                     action : function(e, dt, node, config) {
-                        app.cleanForm();
-                        $('#categorieModal').modal();
+                        app_words.cleanForm();
+                        $('#wordModal').modal();
                     }
                 },
                 {
@@ -104,7 +102,7 @@ let app = {
                           .then((willDelete) => {
                             if (willDelete) {
                               swal('Eliminado exitosamente', '', 'success')
-                              app.delete(data.id)
+                              app_words.delete(data.id)
                             }
                           });
                     }
@@ -114,42 +112,37 @@ let app = {
                     text : '<i class="fa-solid fa-pencil"></i>',
                     action : function(e, dt, node, config) {
                         let data = dt.rows('.table-active').data()[0];
-                        app.setDataToModalPut(data);
-                        $('#categoriePutModal').modal();
+                        app_words.setDataToModalPut(data);
+                        $('#wordPutModal').modal();
                     }
                 }
             ]
         });
-
-        $('#categories tbody').on('click', 'tr', function(){
+        $('#words tbody').on('click', 'tr', function(){
             if ($(this).hasClass('table-active')) {
                 $(this).removeClass('table-active');
             } else {
-                app.table.$('tr.table-active').removeClass('table-active');
+                app_words.table.$('tr.table-active').removeClass('table-active');
                 $(this).addClass('table-active');
             }
         });
+
     },
     setDataToModal : function(data) {
 
-        $('#name').val(data.name);
-        $('#description').val(data.description);
-        $('#file_name').val(data.file_name);
+        $('#WordName').val(data.name);
     },
     setDataToModalPut : function(data) {
-        $('#id_put').val(data.id);
-        $('#name_put').val(data.name);
-        $('#description_put').val(data.description);
-        $('#file_name_put').val(data.file_name);
+        $('#WordIdPut').val(data.id);
+        $('#WordNamePut').val(data.name);
     },
     cleanForm: function(){
-        $('#name').val('');
-        $('#description').val('');
-        $('#file_name').val('');
+        $('#WordName').val('');
+
     },
-    save : function(data) {
+    Wordsave : function(url, data) {
         $.ajax({
-            url: app.backend + '/categories',
+            url: url,
             data : JSON.stringify(data),
             method: 'POST',
             dataType : 'json',
@@ -160,8 +153,8 @@ let app = {
                 $("#msg").css("border", "#000 solid 1px");
                 $("#msg").text('Se guardó la categoría correctamente');
                 $("#msg").show();
-                $('#categorieModal').modal('hide');
-                app.table.ajax.reload();
+                $('#wordModal').modal('hide');
+                app_words.table.ajax.reload();
             },
             error : function(error) {
                 $("#msg").css("color", "#000");
@@ -175,9 +168,9 @@ let app = {
         })
     },
 
-    save_put : function(data) {
+    WordSavePut : function(data) {
         $.ajax({
-            url: app.backend + '/categories/' + data.id,
+            url: app_words.backend + '/words/' + data.id,
             data : JSON.stringify(data),
             method: 'PUT',
             dataType : 'json',
@@ -188,8 +181,8 @@ let app = {
                 $("#msg").css("border", "#000 solid 1px");
                 $("#msg").text('La categoría se actualizó correctamente');
                 $("#msg").show();
-                $('#categoriePutModal').modal('hide');
-                app.table.ajax.reload();
+                $('#wordPutModal').modal('hide');
+                app_words.table.ajax.reload();
             },
             error : function(xhr, status, error) {
                 console.log(error);
@@ -205,7 +198,7 @@ let app = {
 
     delete : function(id) {
         $.ajax({
-            url: app.backend + '/categories/'+id,
+            url: app_words.backend + '/words/'+id,
             method: 'DELETE',
             dataType : 'json',
             contentType: "application/json; charset=utf-8",
@@ -215,7 +208,7 @@ let app = {
                 $("#msg").css("border", "#000 solid 1px");
                 $("#msg").text('Se eliminó  la categoría correctamente');
                 $("#msg").show();
-                app.table.ajax.reload();
+                app_words.table.ajax.reload();
             },
             error : function(error) {
                 $("#msg").css("color", "#000");
@@ -227,29 +220,9 @@ let app = {
             }
         })
     },
-    load_words : function(id) {
-        $.ajax({
-            url: app.backend + '/categories/'+id+ '/words',
-            method: 'GET',
-            dataType : 'json',
-            contentType: "application/json; charset=utf-8",
-            success : function(data) {
-                window.location.href = 'words?category_id=' + id;
-              
-            },
-            error : function(error) {
-                $("#msg").text(error.error);
-                $("#msg").show();
-
-            }
-            
-        });
-    },
     
-
 };
 
 $(document).ready(function(){
-    app.init();
+    app_words.init();
 });
-
