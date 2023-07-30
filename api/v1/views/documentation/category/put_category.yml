@@ -11,6 +11,21 @@
       - name: request
         in: body
         required: true
+        requires:
+          - name
+          - description
+          - file_name
+        properties:
+          name:
+            type: string
+            description: category name
+          description:
+            type: string
+            description: information about the category
+          file_name:
+            type: string
+            description: files containing category information
+
 
     responses:
       404:

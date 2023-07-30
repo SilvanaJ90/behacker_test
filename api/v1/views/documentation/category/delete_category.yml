@@ -8,6 +8,8 @@
         type: string
         required: true
         description: The uuid of the category to delete
+
+
     responses:
       404:
         description: Category not found!

@@ -1,16 +1,17 @@
-Gets the list of all Categories
----
-tags:
-  - Category
-responses:
-  200:
-    description: Successful request
-    schema:
-      type: array
-      items:
+    Gets the list of all Categories
+    ---
+    tags:
+      - Category
+    parameters:
+      - name: request
+        in: path
+        required: true
+        requires:
+          - id
+          - name
+          - description
+          - file_name
         properties:
-          __class__:
-            type: string
           id:
             type: string
             description: The uuid of the category instance
@@ -23,3 +24,7 @@ responses:
           file_name:
             type: string
             description: files containing category information
+     
+    responses:
+      200:
+        description: Request completed successfully

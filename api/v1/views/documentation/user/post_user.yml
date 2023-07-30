@@ -9,11 +9,20 @@
         requires:
           - email:
           - password:
+          - first_name:
+          - last_name:
+          - is_user: 
         properties:
           email:
             type: string
           password:
             type: string
+          first_name:
+            type: string
+          last_name:
+            type: string
+          is_user:
+            type: boolean
 
     responses:
       400:

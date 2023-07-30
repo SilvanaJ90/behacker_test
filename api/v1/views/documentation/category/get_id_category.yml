@@ -6,27 +6,29 @@ parameters:
   - name: category_id
     in: path
     type: string
-    required: false
+    required: true
     description: the unique id of the category
+    requires:
+      - id
+      - name
+      - description
+      - file_name
+    properties:
+      id:
+        type: string
+        description: The uuid of the category instance
+      name:
+        type: string
+        description: category name
+      description:
+        type: string
+        description: information about the category
+      file_name:
+        type: string
+        description: files containing category information
+  
 responses:
   404:
     description: category not found
   200:
-    description: Successful request
-    schema:
-      properties:
-        properties:
-          __class__:
-            type: string
-          id:
-            type: string
-            description: The uuid of the category instance
-          name:
-            type: string
-            description: category name
-          description:
-            type: string
-            description: information about the category
-          file_name:
-            type: string
-            description: files containing category information
+    description: Request completed successfully
